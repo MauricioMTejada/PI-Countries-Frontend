@@ -1,0 +1,11 @@
+.imagenFondo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+    background-image: url("./planisferio4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh; /* para ocupar toda la altura de la ventana */
+  }
