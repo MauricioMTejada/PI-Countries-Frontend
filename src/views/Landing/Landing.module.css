@@ -1,10 +1,21 @@
+/* html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+} */
+
 .imagenFondo {
     background-image: url("./planisferio.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 100vh; /* para ocupar toda la altura de la ventana */
-  }
+    width: "100vw";
+    height: "100vh";
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea verticalmente los elementos en el centro */
+    align-items: center; /* Alinea horizontalmente los elementos en el centro */
+}
 
   h1 {
     margin-top: 0;

@@ -11,8 +11,29 @@
     /* margin-top: 2px; */
     margin-bottom: 2px;
 
+    height: 50px;
+
 }
 
 .replaceSearch{
     width: 235px;
+
 }
+
+.formContainer {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+  }
+
+  /* Estilo para el input */
+  input {
+    /* Puedes ajustar el ancho del input según tus necesidades */
+    width: 150px; /* Por ejemplo, 150px */
+    margin-right: 10px; /* Espacio entre el input y el botón */
+  }
+
+/* button {
+    height: 20px;
+    display: flex;
+    align-items: center;
+} */

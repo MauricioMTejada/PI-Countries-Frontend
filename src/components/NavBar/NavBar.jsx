@@ -27,6 +27,8 @@ const NavBar = () => {
               //setCurrentPage(1);
               }
 
+    const styleButton = {height: "20px"}
+
   return (
     <div className={style.mainContainer}>
 
@@ -38,10 +40,12 @@ const NavBar = () => {
             <div style={{ width: '228px', height: '23px' }}/>) : (
 
             <form onChange={handleChange}>
-              <input placeholder="Buscar" />
-                <button type="submit" onClick={handleSubmit}>
+              <div className={style.formContainer}>
+                <input placeholder="Buscar" />
+                <button type="submit" onClick={handleSubmit} style={styleButton}>
                   Buscar
                 </button>
+              </div>
             </form>
           )}
       </div>
