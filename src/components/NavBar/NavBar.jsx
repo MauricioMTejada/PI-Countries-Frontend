@@ -27,15 +27,24 @@ const NavBar = () => {
               //setCurrentPage(1);
               }
 
-    const styleButton = {height: "20px"}
+    const styleButton = {
+      height: "24px",
+      padding: "0px",
+      display: "flex",
+      alignSelf: "flex-end"
+    }
+
+    const styleText = { fontWeight: "bold", color: "#310336"}
+    const styleDiv = { display: "flex",  alignItems: "center"};
 
   return (
     <div className={style.mainContainer}>
+    {/* <div> */}
 
-      <Link to="/home">Home</Link>
-      <Link to="/create">Form</Link>
+      <Link to="/home" style={styleText}>Home</Link>
+      <Link to="/create" style={styleText}>Form</Link>
 
-      <div>
+      <div style={styleDiv}>
           {location.pathname === "/create" ? (
             <div style={{ width: '228px', height: '23px' }}/>) : (
 

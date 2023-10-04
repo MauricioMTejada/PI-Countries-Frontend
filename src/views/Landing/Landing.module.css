@@ -9,8 +9,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: "100vw";
-    height: "100vh";
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Alinea verticalmente los elementos en el centro */
