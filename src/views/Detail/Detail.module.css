@@ -7,5 +7,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    width: 100vw;
     height: 100vh; /* para ocupar toda la altura de la ventana */
   }

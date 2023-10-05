@@ -1,16 +1,21 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getDetail } from "../../redux/actions";
 import style from "./Detail.module.css";
 
 export default function Detail(props) {
   const dispatch = useDispatch();
+  const { id } = useParams();
+
+  // useEffect(() => {
+  //   dispatch(getDetail(props.match.params.id));
+  // }, [dispatch, props.match.params.id]);
 
   useEffect(() => {
-    dispatch(getDetail(props.match.params.id));
-  }, [dispatch, props.match.params.id]);
+    dispatch(getDetail(id)); // Utiliza el parámetro 'id' obtenido de useParams
+  }, [dispatch, id]);
 
   const myCountry = useSelector((state) => state.detail);
   // console.log(myCountry);
@@ -19,10 +24,12 @@ export default function Detail(props) {
     // let haveActivities = 0;
     // if(myCountry.actividades.length === 0) haveActivities = 1;
 
+  const styleTextGeneral = { color: "#310336" }
+
   if(myCountry.length !== 0)
   return (
     <div className={style.imagenFondo}>
-      <div>
+      <div style={styleTextGeneral}>
         <img
           src={myCountry.bandera}
           alt="Bandera"
@@ -51,7 +58,7 @@ export default function Detail(props) {
           <br />
           {myCountry.actividades.length !== 0 && (<strong>Actividades: </strong>)}
           {myCountry.actividades.map(element => {return (<div key={element.id}>
-            <span>Nombre: {element.nombre}, Dificultad: {element.dificultad}, Duración: {element.duracion} hs., Temporada: {element.temporada}</span></div>)})}
+            <span><u>Nombre:</u> {element.nombre}, Dificultad: {element.dificultad}, Duración: {element.duracion} hs., Temporada: {element.temporada}</span></div>)})}
 
         </div>
       </div>

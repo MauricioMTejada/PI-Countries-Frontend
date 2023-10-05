@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   return (
     <div className={style.card}>
-      <Link to={`home/${props.id}`}>
+      <Link to={`/home/${props.id}`}>
         <img
           src={props.bandera}
           alt="Bandera"
@@ -12,7 +12,7 @@ const Card = (props) => {
         />
       </Link>
 
-      <p>Nombre: {props.nombre}</p>
+      <p><span className={style.boldText}>{props.nombre}</span></p>
       <p>Continente: {props.continente}</p>
       <p>Población: {props.poblacion}</p>
     </div>

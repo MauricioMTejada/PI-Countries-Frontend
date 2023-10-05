@@ -3,4 +3,17 @@
     width: fit-content;
     height: fit-content;
     border-radius: 10px;
+
+    color: #310336;
+
+    padding: 2px;
+}
+
+.boldText {
+    font-weight: bold; /* Hacer que el texto esté en negrita */
+  }
+
+p {
+    margin: 0px;
+    padding: 0px;
 }

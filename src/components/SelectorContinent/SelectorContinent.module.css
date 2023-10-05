@@ -1,3 +1,8 @@
+:root {
+  --color-text: #310336; /* Variable personalizada */
+}
+
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -20,6 +25,7 @@
   .leftElement {
     flex: 1; /* Ocupar todo el espacio disponible */
     text-align: left; /* Alinear a la izquierda */
+    color: var(--color-text);
   }
 
   .rightElement {
