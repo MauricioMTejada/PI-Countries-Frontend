@@ -1,7 +1,7 @@
 import axios from "axios";
 import store from "./store"
 
-const URLBASE = `http://localhost:3002/`;
+// const URLBASE = `http://localhost:3002/`;
 
 export const GET_PAISES = "GET_PAISES";
 export const GET_BY_NAME = "GET_BY_NAME";
@@ -15,10 +15,74 @@ export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
 // Buscar la lista completa de países:
     export const getPaises = () => {
         return async function (dispatch) {
-            const apiData = await axios.get(URLBASE + "countries");
-            const paises = apiData.data;
+
+            let URL_BASE = "https://restcountries.com/v3/all";
+            let id = "";
+            let nombre = "";
+            let bandera = "";
+            let continente = "";
+            let capital = "";
+            let subregion = "";
+            let area = 0;
+            let poblacion = 0;
+
+            const paises = [];
+
+            fetch(`${URL_BASE}`)
+                .then((response) => response.json())
+                .then((data) => {
+                for (let i = 0; i < data.length; i++) {
+                    id = data[i].cca3;
+                    nombre = data[i].name.common;
+                    bandera = data[i].flags[1];
+                    continente = data[i].continents[0];
+
+                    if (data[i].capital) capital = data[i].capital[0];
+                    else capital = "Sin Capital";
+
+                    if (data[i].subregion) subregion = data[i].subregion;
+                    else subregion = "Sin Subregion";
+
+                    area = Math.round(data[i].area);
+                    poblacion = data[i].population;
+
+                    console.log(
+                      `{id: "${id}", nombre: "${nombre}", bandera: "${bandera}", continente: "${continente}", capital: "${capital}", subregion: "${subregion}", area: ${area}, poblacion: ${poblacion} }, `
+                      // ", nombre:", nombre,
+                      // ", bandera:", bandera,
+                      // ", continente:", continente,
+                      // ", capital:", capital,
+                      // ", subregion:", subregion,
+                      // ", area:", area,
+                      // ", poblacion:", poblacion,
+                      // "},"
+                    );
+
+
+                    paises.push(
+                        {id,
+                        nombre,
+                        bandera,
+                        continente,
+                        capital,
+                        subregion,
+                        area,
+                        poblacion,}
+                    )
+
+
+                }
+                });
+
+            console.log("--- Base de Batos Cargada ---");
+            console.log(paises);
+
+
+            // const apiData = await axios.get(URLBASE + "countries");
+            // const apiData = await axios.get(`https://restcountries.com/v3/all`)
+            // const paises = apiData.data;
             dispatch({ type: GET_PAISES, payload: paises });
-        };
+            };
     };
 
 // Buscador de países:
@@ -30,6 +94,28 @@ export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
           .join(" ");
 
         return async function (dispatch) {
+          let allPaises = store.getState().paises;
+          let bandera = false;
+          let stringId = "";
+
+          for (let i = 0; i < allPaises.length; i++) {
+            if (allPaises[i].nombre == name) {
+              dispatch({
+                type: GET_BY_NAME,
+                payload: allPaises[i] })
+              console.log(allPaises[i]);
+              bandera = true;
+              stringId = allPaises[i].id;
+            }
+          }
+
+          console.log("bandera: " + bandera);
+
+          if (bandera) window.location.href = `/home/${stringId}`;
+
+          else {alert("País no encontrado");}
+          return;
+
           const apiData = await axios.get(`${URLBASE}countries/?nombre=${name}`);
           const paisByName = [apiData.data];
           if (apiData.data === null) {
@@ -104,60 +190,70 @@ export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
 // Vista Detalle:
     export function getDetail(id) {
       return async function (dispatch) {
+        let allPaises = store.getState().paises;
 
-        // Para solicitar actividades:
-            //console.log(`id de country: ${id}`);
-            let arrayIdActividades = [];
-            let nombreActividadesSinDuplicados = [];
+        for (let i = 0; i < allPaises.length; i++) {
+          if (allPaises[i].id == id) {
+            return dispatch({
+              type: GET_DETAILS,
+              payload: allPaises[i] });
+          }
 
-            try {
-              let json = await axios.get(`${URLBASE}activity/`);
-              let relaciones = json.data.relaciones;
-              // console.log(relaciones);
-              for (let i = 0; i < relaciones.length; i++) {
-                if (relaciones[i].countryId === id) {
-                  arrayIdActividades.push(relaciones[i].activityId);
-                }
-              }
-              // console.log("Array actividades:");
-              // console.log(arrayIdActividades);
+        }
 
-              let actividades = json.data.actividades;
-              // console.log(actividades)
-              let nombreActividades = [];
-              for (let i = 0; i < actividades.length; i++) {
-                for (let j = 0; j < arrayIdActividades.length; j++) {
-                  if (actividades[i].id === arrayIdActividades[j]){
-                    // console.log(actividades[i]);
-                    nombreActividades.push(actividades[i]);}
-                }
-              }
+        // // Para solicitar actividades:
+        //     //console.log(`id de country: ${id}`);
+        //     let arrayIdActividades = [];
+        //     let nombreActividadesSinDuplicados = [];
 
-              // console.log(`nombreActividades: `);
-              // console.log(nombreActividades);
+        //     try {
+        //       let json = await axios.get(`${URLBASE}activity/`);
+        //       let relaciones = json.data.relaciones;
+        //       // console.log(relaciones);
+        //       for (let i = 0; i < relaciones.length; i++) {
+        //         if (relaciones[i].countryId === id) {
+        //           arrayIdActividades.push(relaciones[i].activityId);
+        //         }
+        //       }
+        //       // console.log("Array actividades:");
+        //       // console.log(arrayIdActividades);
 
-              for (let i = nombreActividades.length - 1; i >= 0 ; i--) {
+        //       let actividades = json.data.actividades;
+        //       // console.log(actividades)
+        //       let nombreActividades = [];
+        //       for (let i = 0; i < actividades.length; i++) {
+        //         for (let j = 0; j < arrayIdActividades.length; j++) {
+        //           if (actividades[i].id === arrayIdActividades[j]){
+        //             // console.log(actividades[i]);
+        //             nombreActividades.push(actividades[i]);}
+        //         }
+        //       }
 
-                let varAux = 0;
-                for(let j = 0; j < nombreActividadesSinDuplicados.length; j++){
-                  if (nombreActividades[i].nombre === nombreActividadesSinDuplicados[j].nombre){
-                    varAux = 1;
-                  }
+        //       // console.log(`nombreActividades: `);
+        //       // console.log(nombreActividades);
 
-                }
+        //       for (let i = nombreActividades.length - 1; i >= 0 ; i--) {
 
-                if( varAux === 0) {
-                  nombreActividadesSinDuplicados.push(nombreActividades[i])
-                }
+        //         let varAux = 0;
+        //         for(let j = 0; j < nombreActividadesSinDuplicados.length; j++){
+        //           if (nombreActividades[i].nombre === nombreActividadesSinDuplicados[j].nombre){
+        //             varAux = 1;
+        //           }
 
-              }
+        //         }
 
-              //nombreActividadesSinDuplicados = [...new Set(nombreActividades)];
-              // console.log(`nombreActividadesSinDuplicados: `);
-              // console.log(nombreActividadesSinDuplicados);
-            } catch (error) {
-              console.log(error);
-            }
+        //         if( varAux === 0) {
+        //           nombreActividadesSinDuplicados.push(nombreActividades[i])
+        //         }
+
+        //       }
+
+        //       //nombreActividadesSinDuplicados = [...new Set(nombreActividades)];
+        //       // console.log(`nombreActividadesSinDuplicados: `);
+        //       // console.log(nombreActividadesSinDuplicados);
+        //     } catch (error) {
+        //       console.log(error);
+        //     }
 
 
         // Para solicitar los detalles del Pais al servidor:

@@ -5,9 +5,9 @@
 
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    width: 340px;
+    width: 730px;
     padding-right: 20px;
     padding-left: 20px;
 
@@ -24,11 +24,13 @@
 
   .leftElement {
     flex: 1; /* Ocupar todo el espacio disponible */
-    text-align: left; /* Alinear a la izquierda */
+    text-align: right; /* Alinear a la izquierda */
     color: var(--color-text);
+    padding-right: 5px;
   }
 
   .rightElement {
     flex: 1; /* Ocupar todo el espacio disponible */
-    text-align: right; /* Alinear a la derecha */
+    text-align: left; /* Alinear a la derecha */
+    padding-left: 5px;
   }

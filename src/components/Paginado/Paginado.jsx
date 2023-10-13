@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Paginado.module.css";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import SelectorSortAlphabetical from "../SelectorSortAlphabetical/SelectorSortAlphabetical";
@@ -8,9 +8,27 @@ import SelectorActivity from "../SelectorActivity/SelectorActivity";
 import { useSelector } from "react-redux";
 
 export default function Paginado() {
+    // Estado para controlar la carga de datos
+    const [dataLoaded, setDataLoaded] = useState(false);
 
-  // Trabajo con éste array que se encarga de traer a todos los países.
-      const allPaises = useSelector((state) => state.paises);
+    // Trabajo con éste array que se encarga de traer a todos los países.
+    const [ estadoAllPaises, setEstadoAllPaises ] = useState([])
+    const allPaises = useSelector((state) => state.paises);
+    // setEstadoAllPaises(allPaises)
+
+    // console.log(allPaises.length);
+
+    useEffect(() => {
+        console.log(allPaises);
+        console.log(estadoAllPaises);
+
+        // Verifica si "allPaises" tiene elementos
+        if (allPaises.length > 0) setDataLoaded(true);
+        console.log(allPaises.length);
+        console.log(allPaises[0]);
+        console.log("dataLoaded: " + dataLoaded);
+        console.log(allPaises);
+    }, [estadoAllPaises, allPaises])
 
   // Estado para re-renderizar el Orden Alfabético.
       // Sin éste estado, cuando presiono la lista desplegable no muestra
@@ -47,15 +65,20 @@ export default function Paginado() {
       for (let i = 0; i < Math.ceil(allPaises.length / presentarPaises); i++) {
         pageNumbers.push(i + 1);}
 
-  return (
-        //<div className={style.container}>
+return(
+    <>
+        {dataLoaded === false ? (
+        <div>
+            <h2 style={{color: "black"}}>Cargando...</h2>
+        </div>
+    ): (//<div className={style.container}>
         <div>
           {/* Selectores */}
             <div className={style.container}>
                 <div className={style.selectores}>
                     <div className={style.selectoresLinea}>
                         <SelectorContinent orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} />
-                        <SelectorActivity orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} />
+                        {/* <SelectorActivity orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} /> */}
                     </div>
                     <div className={style.selectoresLinea}>
                         <SelectorSortAlphabetical orden={orden} setOrden={setOrden} />
@@ -78,9 +101,14 @@ export default function Paginado() {
                 </ul>
               </nav>
 
+
           {/* Elementos a visualizar */}
               <CardsContainer currentCountry={currentCountry}/>
 
-        </div>
-  );
+        </div>)}
+
+    </>
+)
+
+
 }

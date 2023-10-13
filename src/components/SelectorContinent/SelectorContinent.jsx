@@ -14,18 +14,18 @@ const dispatch = useDispatch();
 
     return (
         <div  className={style.container}>
-            <span  className={style.leftElement}> <strong>Filtrar por Continente: </strong> </span>
+            <span  className={style.leftElement}> <strong>Continente: </strong> </span>
 
             <span className={style.rightElement}>
               <select value={orden.sortContinent} onChange={(event) => handleFilterContinent(event)}>
                 <option value="All">Todos los Países</option>
                 <option value="Africa">África</option>
-                <option value="Europe">Europa</option>
-                <option value="Asia">Asia</option>
-                <option value="North America">América del Norte</option>
-                <option value="Oceania">Oceanía</option>
-                <option value="South America">América del Sur</option>
                 <option value="Antarctica">Antártica</option>
+                <option value="North America">América del Norte</option>
+                <option value="South America">América del Sur</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europa</option>
+                <option value="Oceania">Oceanía</option>
               </select>
             </span>
         </div>

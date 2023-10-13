@@ -20,12 +20,10 @@ const NavBar = () => {
 
     // Submit:
         function handleSubmit(event) {
-            event.preventDefault();
-            if(searchString === "") {
-              alert("Coloque el nombre de un país.");
-              } else { dispatch(getByName(searchString)); }
-              //setCurrentPage(1);
-              }
+          event.preventDefault();
+          if(searchString === "") { alert("Coloque el nombre de un país."); }
+          else { console.log("paso por NavBar"); dispatch(getByName(searchString)); }
+        }
 
     const styleButton = {
       height: "24px",
@@ -41,8 +39,8 @@ const NavBar = () => {
     <div className={style.mainContainer}>
     {/* <div> */}
 
-      <Link to="/home" style={styleText}>Home</Link>
-      <Link to="/create" style={styleText}>Form</Link>
+      <Link to="/" style={styleText}>Landing</Link>
+      {/* <Link to="/create" style={styleText}>Form</Link> */}
 
       <div style={styleDiv}>
           {location.pathname === "/create" ? (

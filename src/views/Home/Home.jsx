@@ -8,8 +8,8 @@ import style from "./Home.module.css";
 const Home = () => {
 
   // Solicito información de todos los países al servidor.
-    const dispatch = useDispatch();
-    useEffect(() => { dispatch(getPaises()); }, [dispatch]);
+    // const dispatch = useDispatch();
+    // useEffect(() => { dispatch(getPaises()); }, [dispatch]);
 
     return (
       <div className={style.imagenFondo}>

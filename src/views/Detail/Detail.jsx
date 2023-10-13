@@ -56,9 +56,9 @@ export default function Detail(props) {
           <strong>Población: </strong>
           <span>{myCountry.poblacion}</span>
           <br />
-          {myCountry.actividades.length !== 0 && (<strong>Actividades: </strong>)}
+          {/* {myCountry.actividades.length !== 0 && (<strong>Actividades: </strong>)}
           {myCountry.actividades.map(element => {return (<div key={element.id}>
-            <span><u>Nombre:</u> {element.nombre}, Dificultad: {element.dificultad}, Duración: {element.duracion} hs., Temporada: {element.temporada}</span></div>)})}
+            <span><u>Nombre:</u> {element.nombre}, Dificultad: {element.dificultad}, Duración: {element.duracion} hs., Temporada: {element.temporada}</span></div>)})} */}
 
         </div>
       </div>
