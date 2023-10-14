@@ -2,6 +2,8 @@ import style from "./Card.module.css";
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
+  const poblacionFormateada = props.poblacion.toLocaleString('en-US');
+
   return (
     <div className={style.card}>
       <Link to={`/home/${props.id}`}>
@@ -14,7 +16,7 @@ const Card = (props) => {
 
       <p><span className={style.boldText}>{props.nombre}</span></p>
       <p>Continente: {props.continente}</p>
-      <p>Población: {props.poblacion}</p>
+      <p>Población: {poblacionFormateada}</p>
     </div>
   );
 };

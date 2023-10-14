@@ -24,6 +24,12 @@ export default function Detail(props) {
     // let haveActivities = 0;
     // if(myCountry.actividades.length === 0) haveActivities = 1;
 
+  console.log(myCountry);
+  let poblacionFormateada = 0;
+  let areaFormateata = 0;
+  if(myCountry.poblacion) poblacionFormateada = myCountry.poblacion.toLocaleString();
+  if(myCountry.area) areaFormateata = myCountry.area.toLocaleString();
+
   const styleTextGeneral = { color: "#310336" }
 
   if(myCountry.length !== 0)
@@ -51,10 +57,10 @@ export default function Detail(props) {
           <span>{myCountry.capital}</span>
           <br />
           <strong>Área: </strong>
-          <span>{myCountry.area}</span>
+          <span>{areaFormateata}</span>
           <br />
           <strong>Población: </strong>
-          <span>{myCountry.poblacion}</span>
+          <span>{poblacionFormateada}</span>
           <br />
           {/* {myCountry.actividades.length !== 0 && (<strong>Actividades: </strong>)}
           {myCountry.actividades.map(element => {return (<div key={element.id}>
