@@ -109,7 +109,7 @@ export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
             }
           }
 
-          console.log("bandera: " + bandera);
+          // console.log("bandera: " + bandera);
 
           if (bandera) window.location.href = `/home/${stringId}`;
 

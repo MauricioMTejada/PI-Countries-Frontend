@@ -19,15 +19,15 @@ export default function Paginado() {
     // console.log(allPaises.length);
 
     useEffect(() => {
-        console.log(allPaises);
-        console.log(estadoAllPaises);
+        // console.log(allPaises);
+        // console.log(estadoAllPaises);
 
         // Verifica si "allPaises" tiene elementos
         if (allPaises.length > 0) setDataLoaded(true);
-        console.log(allPaises.length);
-        console.log(allPaises[0]);
-        console.log("dataLoaded: " + dataLoaded);
-        console.log(allPaises);
+        // console.log(allPaises.length);
+        // console.log(allPaises[0]);
+        // console.log("dataLoaded: " + dataLoaded);
+        // console.log(allPaises);
     }, [estadoAllPaises, allPaises])
 
   // Estado para re-renderizar el Orden Alfabético.
@@ -55,7 +55,7 @@ export default function Paginado() {
   // Extraigo del array los elementos a renderizar
       const currentCountry = allPaises.slice(indexOfFirstCounty, indexOfLastCountry);
   // Función que setea el número de página a renderizar:
-      const handlePaginado = (pageNumber) => { setCurrentPage(pageNumber); };
+      const handlePaginado = (pageNumber) => { setCurrentPage(pageNumber); console.log(pageNumber);};
   // Control en consola:
       //console.log("imprimo los paises a renderizar (currentCountry)");
       //console.log(currentCountry);

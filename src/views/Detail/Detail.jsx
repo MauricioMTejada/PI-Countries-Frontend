@@ -24,7 +24,7 @@ export default function Detail(props) {
     // let haveActivities = 0;
     // if(myCountry.actividades.length === 0) haveActivities = 1;
 
-  console.log(myCountry);
+  // console.log(myCountry);
   let poblacionFormateada = 0;
   let areaFormateata = 0;
   if(myCountry.poblacion) poblacionFormateada = myCountry.poblacion.toLocaleString();

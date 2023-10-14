@@ -22,7 +22,7 @@ const NavBar = () => {
         function handleSubmit(event) {
           event.preventDefault();
           if(searchString === "") { alert("Coloque el nombre de un país."); }
-          else { console.log("paso por NavBar"); dispatch(getByName(searchString)); }
+          else { dispatch(getByName(searchString)); }
         }
 
     const styleButton = {
