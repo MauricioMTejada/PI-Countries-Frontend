@@ -4,6 +4,8 @@
     height: fit-content;
     border-radius: 10px;
 
+    backdrop-filter: blur(90px);
+
     color: #310336;
 
     padding: 2px;

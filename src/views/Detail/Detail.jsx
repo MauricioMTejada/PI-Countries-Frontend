@@ -31,48 +31,51 @@ export default function Detail(props) {
   if(myCountry.area) areaFormateata = myCountry.area.toLocaleString();
 
   const styleTextGeneral = { color: "#310336" }
+  const styleBackground = {backdropFilter: "blur(30px)", padding: "30px 10px", border: "1px solid black", borderRadius: "10px" }
 
   if(myCountry.length !== 0)
   return (
     <div className={style.imagenFondo}>
-      <div style={styleTextGeneral}>
-        <img
-          src={myCountry.bandera}
-          alt="Bandera"
-          style={{ maxWidth: "250px", maxHeight: "170px" }}
-        />
-        <h1>{myCountry.nombre}</h1>
+      <div style={styleBackground}>
+        <div style={styleTextGeneral}>
+          <img
+            src={myCountry.bandera}
+            alt="Bandera"
+            style={{ maxWidth: "250px", maxHeight: "170px" }}
+          />
+          <h1>{myCountry.nombre}</h1>
 
-        <div>
-          <strong>Id: </strong>
-          <span>{myCountry.id}</span>
-          <br />
-          <strong>Continente: </strong>
-          <span>{myCountry.continente}</span>
-          <br />
-          <strong>Subregión: </strong>
-          <span>{myCountry.subregion}</span>
-          <br />
-          <strong>Capital: </strong>
-          <span>{myCountry.capital}</span>
-          <br />
-          <strong>Área: </strong>
-          <span>{areaFormateata}</span>
-          <br />
-          <strong>Población: </strong>
-          <span>{poblacionFormateada}</span>
-          <br />
-          {/* {myCountry.actividades.length !== 0 && (<strong>Actividades: </strong>)}
-          {myCountry.actividades.map(element => {return (<div key={element.id}>
-            <span><u>Nombre:</u> {element.nombre}, Dificultad: {element.dificultad}, Duración: {element.duracion} hs., Temporada: {element.temporada}</span></div>)})} */}
+          <div>
+            <strong>Id: </strong>
+            <span>{myCountry.id}</span>
+            <br />
+            <strong>Continente: </strong>
+            <span>{myCountry.continente}</span>
+            <br />
+            <strong>Subregión: </strong>
+            <span>{myCountry.subregion}</span>
+            <br />
+            <strong>Capital: </strong>
+            <span>{myCountry.capital}</span>
+            <br />
+            <strong>Área: </strong>
+            <span>{areaFormateata}</span>
+            <br />
+            <strong>Población: </strong>
+            <span>{poblacionFormateada}</span>
+            <br />
+            {/* {myCountry.actividades.length !== 0 && (<strong>Actividades: </strong>)}
+            {myCountry.actividades.map(element => {return (<div key={element.id}>
+              <span><u>Nombre:</u> {element.nombre}, Dificultad: {element.dificultad}, Duración: {element.duracion} hs., Temporada: {element.temporada}</span></div>)})} */}
 
+          </div>
         </div>
+        <br />
+        <Link to="/home">
+          {" "}
+          <button>Volver</button>{" "}
+        </Link>
       </div>
-      <br />
-      <Link to="/home">
-        {" "}
-        <button>Volver</button>{" "}
-      </Link>
     </div>
   )
   else {return(<></>)};
