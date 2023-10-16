@@ -13,7 +13,7 @@ const Home = () => {
 
     return (
       <div className={style.imagenFondo}>
-          <NavBar/>
+          {/* <NavBar/> */}
           <Paginado />
       </div>
     );
