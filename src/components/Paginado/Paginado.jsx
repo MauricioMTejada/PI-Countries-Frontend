@@ -72,7 +72,7 @@ return(
             <h2 style={{color: "black"}}>Cargando...</h2>
         </div>
     ): (//<div className={style.container}>
-        <div>
+        <div className={style.widthMain}>
           {/* Selectores */}
             <div className={style.container}>
                 <div className={style.selectores}>

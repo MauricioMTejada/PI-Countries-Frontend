@@ -8,7 +8,8 @@
 
     color: #310336;
 
-    padding: 2px;
+    /* padding: 2px; */
+    overflow: hidden;
 }
 
 .boldText {

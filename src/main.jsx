@@ -14,7 +14,7 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <Routes> {/* Envuelve tus rutas en un componente Routes */}
-          <Route path="*" element={<App />} /> {/* Usa el componente Route dentro de Routes */}
+          <Route path="*" element={<App />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

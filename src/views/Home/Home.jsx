@@ -12,7 +12,7 @@ const Home = () => {
     // useEffect(() => { dispatch(getPaises()); }, [dispatch]);
 
     return (
-      <div className={style.imagenFondo}>
+      <div className={style.background }>
           {/* <NavBar/> */}
           <Paginado />
       </div>
