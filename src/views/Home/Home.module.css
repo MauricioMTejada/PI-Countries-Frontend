@@ -11,6 +11,8 @@
 
 .background {
   display: flex;
+  flex-direction: column;
+
   background-image: url("../../assets/planisferio3.jpg");
   background-size: cover;
   background-repeat: no-repeat;

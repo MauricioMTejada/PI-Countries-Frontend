@@ -7,6 +7,7 @@ import { SelectorContinent } from "../SelectorContinent/SelectorContinent";
 import SelectorActivity from "../SelectorActivity/SelectorActivity";
 import { useSelector } from "react-redux";
 import HeroLoading from "./HeroLoading";
+import HeroData from "./HeroData";
 
 export default function Hero() {
     // Estado para controlar la carga de datos
@@ -105,6 +106,8 @@ return(
               <CardsContainer currentCountry={currentCountry}/>
 
         </div>)}
+
+        <HeroData />
 
     </>
 )
