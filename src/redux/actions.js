@@ -5,12 +5,12 @@ import store from "./store"
 
 export const GET_PAISES = "GET_PAISES";
 export const GET_BY_NAME = "GET_BY_NAME";
-export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
-export const ORDER_BY_NAME = "ORDER_BY_NAME";
+// export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const GET_DETAILS = "GET_DETAILS";
-export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
+// export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const GET_LIST_ATIVITIES = "GET_LIST_ATIVITIES";
 export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
+export const MAIN_ORDER = "MAIN_ORDER";
 
 // Buscar la lista completa de países:
     export const getPaises = () => {
@@ -126,66 +126,54 @@ export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
 
     };
 
-// Filtrar por Continente:
-    export function filterContinent(orden) {
-      let allPaises = store.getState().backupPaises;
-      const statusFiltered =
-        orden === "All"
-          ? allPaises
-          : allPaises.filter((element) => element.continente === orden);
-
-      return {
-        type: FILTER_BY_CONTINENT,
-        payload: statusFiltered };
-    }
 
 // Ordenar por Orden Alfabético:
-    export function orderByName(orden) {
-      let allPaises = store.getState().paises;
+    // export function orderByName(orden) {
+    //   let allPaises = store.getState().paises;
 
-      if (orden === "ascendente") {
-        allPaises.sort(function (a, b) {
-          if (a.nombre > b.nombre) { return 1; }
-          if (a.nombre < b.nombre) { return -1; }
-          return 0; }); }
+    //   if (orden === "ascendente") {
+    //     allPaises.sort(function (a, b) {
+    //       if (a.nombre > b.nombre) { return 1; }
+    //       if (a.nombre < b.nombre) { return -1; }
+    //       return 0; }); }
 
-      if (orden === "descendente") {
-        allPaises.sort(function (a, b) {
-          if (a.nombre < b.nombre) { return 1; }
-          if (a.nombre > b.nombre) { return -1; }
-          return 0; }); }
+    //   if (orden === "descendente") {
+    //     allPaises.sort(function (a, b) {
+    //       if (a.nombre < b.nombre) { return 1; }
+    //       if (a.nombre > b.nombre) { return -1; }
+    //       return 0; }); }
 
-      // if (orden === "sinOrden") {
-      //   allPaises = store.getState().backupPaises; }
+    //   // if (orden === "sinOrden") {
+    //   //   allPaises = store.getState().backupPaises; }
 
-      return {
-        type: ORDER_BY_NAME,
-        payload: allPaises, };
-    }
+    //   return {
+    //     type: ORDER_BY_NAME,
+    //     payload: allPaises, };
+    // }
 
 // Ordenar por cantidad de Población:
-    export function orderByPopulation(orden) {
-      let allPaises = store.getState().paises;
+    // export function orderByPopulation(orden) {
+    //   let allPaises = store.getState().paises;
 
-        if (orden === "asc") {
-          allPaises.sort(function (a, b) {
-            if (a.poblacion > b.poblacion) { return 1; }
-            if (a.poblacion < b.poblacion) { return -1; }
-            return 0; }); }
+    //     if (orden === "asc") {
+    //       allPaises.sort(function (a, b) {
+    //         if (a.poblacion > b.poblacion) { return 1; }
+    //         if (a.poblacion < b.poblacion) { return -1; }
+    //         return 0; }); }
 
-        if (orden === "desc") {
-          allPaises.sort(function (a, b) {
-            if (a.poblacion < b.poblacion) { return 1; }
-            if (a.poblacion > b.poblacion) { return -1; }
-            return 0; }); }
+    //     if (orden === "desc") {
+    //       allPaises.sort(function (a, b) {
+    //         if (a.poblacion < b.poblacion) { return 1; }
+    //         if (a.poblacion > b.poblacion) { return -1; }
+    //         return 0; }); }
 
-        if (orden === "sinOrden") {
-          allPaises = store.getState().backupPaises; }
+    //     if (orden === "sinOrden") {
+    //       allPaises = store.getState().backupPaises; }
 
-        return {
-          type: ORDER_BY_POPULATION,
-          payload: allPaises, };
-    }
+    //     return {
+    //       type: ORDER_BY_POPULATION,
+    //       payload: allPaises, };
+    // }
 
 // Vista Detalle:
     export function getDetail(id) {

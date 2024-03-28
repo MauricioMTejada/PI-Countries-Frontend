@@ -38,12 +38,12 @@ export default function Hero() {
       // No funciona si se deja el estado en el componente hijo.
       // También se usa pra resetear el elemento mostrado en la lista desplegable,
       // cuando cambio las opciones de las listas Orden Alfabético y Por Población.
-      const [orden, setOrden] = useState({
-				sortAlpha: "sinOrden",
-				sortPopul: "sinOrden",
-				sortActivity: "Choose",
-				sortContinent: "All",
-			});
+    //   const [orden, setOrden] = useState({
+	// 			sortAlpha: "sinOrden",
+	// 			sortPopul: "sinOrden",
+	// 			sortActivity: "Choose",
+	// 			sortContinent: "All",
+	// 		});
 
 
   // Número de página actual:
@@ -77,12 +77,12 @@ return(
             <div className={style.gridContainer}>
                 {/* <div className={style.selectores}> */}
                     <div className={style.gridItem01}>
-                        <SelectorContinent orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} />
+                        <SelectorContinent />
                         {/* <SelectorActivity orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} /> */}
                     </div>
                     {/* <div className={style.selecOrder}> */}
-                        <SelectorSortAlphabetical orden={orden} setOrden={setOrden} />
-                        <SelectorSortPopulation orden={orden} setOrden={setOrden} />
+                        <SelectorSortAlphabetical  />
+                        <SelectorSortPopulation  />
                     {/* </div> */}
                 {/* </div> */}
             </div>

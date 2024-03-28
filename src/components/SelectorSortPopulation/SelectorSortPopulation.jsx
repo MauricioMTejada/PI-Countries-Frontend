@@ -1,28 +1,45 @@
-import { useDispatch } from "react-redux";
-import { orderByPopulation } from "../../redux/actions";
-import style from "./SelectorSortPopulation.module.css"
+import { useDispatch, useSelector } from "react-redux";
+import { actionMainOrder, orderByPopulation } from "../../redux/actions/index";
+import style from "./SelectorSortPopulation.module.css";
 
-export default function SelectorSortPopulation ({ orden, setOrden }) {
-    const dispatch = useDispatch();
+export default function SelectorSortPopulation() {
+	const dispatch = useDispatch();
+	const mainOrder = useSelector((state) => state.mainOrder);
 
-    function handleSortPoblación(element) {
-        //console.log(element.target.value);
-        dispatch(orderByPopulation(element.target.value));
-        setOrden({...orden, sortAlpha: "sinOrden", sortPopul: element.target.value});
-      }
+	function handleSortPoblación(element) {
+		//console.log(element.target.value);
+		const setValue = element.target.value;
 
-    return (
-        <div className={style.mainContainer}>
-        <div className={style.cardDecoration}></div>
-        <div className={style.container}>
-            <span style={{ paddingRight: "5px"}}> <strong> {`Países ordenados de acuerdo a la cantidad de habitantes:`} </strong> </span>
+		dispatch(orderByPopulation(setValue));
+		dispatch(
+			actionMainOrder({
+				...mainOrder,
+				sortPopul: setValue,
+				sortAlpha: "sinOrden",
+			})
+		);
+	}
 
-            <select value={orden.sortPopul} onChange={(element) => handleSortPoblación(element)}>
-                <option value="sinOrden">- Elija un orden -</option>
-                <option value="asc">Ascendente</option>
-                <option value="desc">Descendente</option>
-            </select>
-        </div>
-        </div>
-    );
+	return (
+		<div className={style.mainContainer}>
+			<div className={style.cardDecoration}></div>
+			<div className={style.container}>
+				<span style={{ paddingRight: "5px" }}>
+					{" "}
+					<strong>
+						{" "}
+						{`Países ordenados de acuerdo a la cantidad de habitantes:`}{" "}
+					</strong>{" "}
+				</span>
+
+				<select
+					value={mainOrder.sortPopul}
+					onChange={(element) => handleSortPoblación(element)}>
+					<option value="sinOrden">- Elija un orden -</option>
+					<option value="asc">Ascendente</option>
+					<option value="desc">Descendente</option>
+				</select>
+			</div>
+		</div>
+	);
 }

@@ -1,21 +1,30 @@
-import { useDispatch } from "react-redux";
-import { filterContinent } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./SelectorContinent.module.css";
+import { actionMainOrder, filterContinent, mainPage } from "../../redux/actions/index";
 
-export function SelectorContinent({ orden, setOrden, setCurrentPage }) {
+export function SelectorContinent() {
 	const dispatch = useDispatch();
+
+	const mainOrder = useSelector(state => state.mainOrder);
+	const paises = useSelector(state => state.paises);
+    console.log(mainOrder);
+	console.log(paises);
 
 	// Orden por Continente:
 	function handleFilterContinent(event) {
-		dispatch(filterContinent(event.target.value));
-		setOrden({
-			...orden,
+		const orderContinent = event.target.value;
+		dispatch(filterContinent(orderContinent));
+
+		dispatch(actionMainOrder({
+			...mainOrder,
 			sortPopul: "sinOrden",
 			sortAlpha: "sinOrden",
 			sortActivity: "Choose",
-			sortContinent: event.target.value,
-		});
-		setCurrentPage(1);
+			sortContinent: orderContinent,
+		}))
+
+		dispatch(mainPage(1));
+
 	}
 
 	return (
@@ -30,11 +39,11 @@ export function SelectorContinent({ orden, setOrden, setCurrentPage }) {
 				<span className={style.rightElement}>
 					<select
 						style={{ fontSize: "1.2rem" }}
-						value={orden.sortContinent}
+						value={mainOrder.sortContinent}
 						onChange={(event) => handleFilterContinent(event)}>
 						<option value="All">Todos los Países</option>
 						<option value="Africa">África</option>
-						<option value="Antarctica">Antártica</option>
+						<option value="Antartica">Antártica</option>
 						<option value="North America">América del Norte</option>
 						<option value="South America">América del Sur</option>
 						<option value="Asia">Asia</option>
