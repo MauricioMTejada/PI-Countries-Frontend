@@ -12,14 +12,17 @@ export default function SelectorSortPopulation ({ orden, setOrden }) {
       }
 
     return (
+        <div className={style.mainContainer}>
+        <div className={style.cardDecoration}></div>
         <div className={style.container}>
-            <span> <strong> Orden por Población: </strong> </span>
+            <span style={{ paddingRight: "5px"}}> <strong> {`Países ordenados de acuerdo a la cantidad de habitantes:`} </strong> </span>
 
             <select value={orden.sortPopul} onChange={(element) => handleSortPoblación(element)}>
                 <option value="sinOrden">- Elija un orden -</option>
                 <option value="asc">Ascendente</option>
                 <option value="desc">Descendente</option>
             </select>
+        </div>
         </div>
     );
 }

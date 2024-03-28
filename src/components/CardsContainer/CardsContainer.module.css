@@ -1,9 +1,13 @@
 .container{
     /* border: 1px solid black; */
-    display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    flex-wrap: wrap;
+    display: grid;
+    width: 100%;
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-rows: repeat(auto-fit, minmax(200px, 1fr)); */
+    /* flex-direction: row; */
+    /* border-radius: 15px; */
+    /* flex-wrap: wrap; */
     gap: 1em;
     justify-content: space-evenly;
     align-items: center;

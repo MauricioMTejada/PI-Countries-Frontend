@@ -13,14 +13,16 @@ export default function SelectorSortAlphabetical ({ orden, setOrden }) {
     }
 
     return (
+        <div className={style.mainContainer}>
+			<div className={style.cardDecoration}></div>
         <div className={style.container}>
-            <span> <strong>Orden Alfabético: </strong> </span>
+            <span style={{ paddingRight: "5px"}}> <strong>{`Países ordenados por orden alfabético:`}</strong> </span>
 
             <select value={orden.sortAlpha} onChange={(element) => handleSortAlphabetical(element)}>
                 <option value="sinOrden">- Elija un orden -</option>
                 <option value="ascendente">Ascendente</option>
                 <option value="descendente">Descendente</option>
             </select>
-        </div>
+        </div></div>
     )
 }

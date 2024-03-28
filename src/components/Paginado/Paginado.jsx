@@ -74,22 +74,22 @@ return(
     ): (//<div className={style.container}>
         <div className={style.widthMain}>
           {/* Selectores */}
-            <div className={style.container}>
-                <div className={style.selectores}>
-                    <div className={style.selectoresLinea}>
+            <div className={style.gridContainer}>
+                {/* <div className={style.selectores}> */}
+                    <div className={style.gridItem01}>
                         <SelectorContinent orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} />
                         {/* <SelectorActivity orden={orden} setOrden={setOrden} setCurrentPage={setCurrentPage} /> */}
                     </div>
-                    <div className={style.selectoresLinea}>
+                    {/* <div className={style.selecOrder}> */}
                         <SelectorSortAlphabetical orden={orden} setOrden={setOrden} />
                         <SelectorSortPopulation orden={orden} setOrden={setOrden} />
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
             </div>
 
           {/* Numeración paginado */}
               <nav>
-                <ul>
+                <ul style={{ paddingInlineStart: "0px"}}>
                   {pageNumbers.length > 1 &&
                     pageNumbers.map((number) => (
                       <a className={style.numeroContainer} key={"a"+number} href={`#${number}a`}>

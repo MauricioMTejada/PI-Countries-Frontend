@@ -1,34 +1,48 @@
 import { useDispatch } from "react-redux";
 import { filterContinent } from "../../redux/actions";
-import style from "./SelectorContinent.module.css"
+import style from "./SelectorContinent.module.css";
 
-export function SelectorContinent ({ orden, setOrden, setCurrentPage }) {
-const dispatch = useDispatch();
+export function SelectorContinent({ orden, setOrden, setCurrentPage }) {
+	const dispatch = useDispatch();
 
-    // Orden por Continente:
-    function handleFilterContinent(event) {
-      dispatch(filterContinent(event.target.value));
-      setOrden({...orden, sortPopul: "sinOrden", sortAlpha: "sinOrden", sortActivity:"Choose", sortContinent:event.target.value });
-      setCurrentPage(1);
-    }
+	// Orden por Continente:
+	function handleFilterContinent(event) {
+		dispatch(filterContinent(event.target.value));
+		setOrden({
+			...orden,
+			sortPopul: "sinOrden",
+			sortAlpha: "sinOrden",
+			sortActivity: "Choose",
+			sortContinent: event.target.value,
+		});
+		setCurrentPage(1);
+	}
 
-    return (
-        <div  className={style.container}>
-            <span  className={style.leftElement}> <strong>Continente: </strong> </span>
+	return (
+		<div className={style.mainContainer}>
+			<div className={style.cardDecoration}></div>
+			<div className={style.container}>
+				<span className={style.leftElement}>
+					{" "}
+					<strong>{`Continente:`} </strong>{" "}
+				</span>
 
-            <span className={style.rightElement}>
-              <select value={orden.sortContinent} onChange={(event) => handleFilterContinent(event)}>
-                <option value="All">Todos los Países</option>
-                <option value="Africa">África</option>
-                <option value="Antarctica">Antártica</option>
-                <option value="North America">América del Norte</option>
-                <option value="South America">América del Sur</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europa</option>
-                <option value="Oceania">Oceanía</option>
-              </select>
-            </span>
-        </div>
-
-    )
+				<span className={style.rightElement}>
+					<select
+						style={{ fontSize: "1.2rem" }}
+						value={orden.sortContinent}
+						onChange={(event) => handleFilterContinent(event)}>
+						<option value="All">Todos los Países</option>
+						<option value="Africa">África</option>
+						<option value="Antarctica">Antártica</option>
+						<option value="North America">América del Norte</option>
+						<option value="South America">América del Sur</option>
+						<option value="Asia">Asia</option>
+						<option value="Europe">Europa</option>
+						<option value="Oceania">Oceanía</option>
+					</select>
+				</span>
+			</div>
+		</div>
+	);
 }
