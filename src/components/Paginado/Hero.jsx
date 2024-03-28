@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import style from "./Paginado.module.css";
+import style from "./Hero.module.css";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import SelectorSortAlphabetical from "../SelectorSortAlphabetical/SelectorSortAlphabetical";
 import SelectorSortPopulation from "../SelectorSortPopulation/SelectorSortPopulation";
 import { SelectorContinent } from "../SelectorContinent/SelectorContinent";
 import SelectorActivity from "../SelectorActivity/SelectorActivity";
 import { useSelector } from "react-redux";
+import HeroLoading from "./HeroLoading";
 
-export default function Paginado() {
+export default function Hero() {
     // Estado para controlar la carga de datos
     const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -68,9 +69,7 @@ export default function Paginado() {
 return(
     <>
         {dataLoaded === false ? (
-        <div>
-            <h2 style={{color: "black"}}>Cargando...</h2>
-        </div>
+        <HeroLoading />
     ): (//<div className={style.container}>
         <div className={style.widthMain}>
           {/* Selectores */}

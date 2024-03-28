@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getPaises, } from "../../redux/actions";
 import NavBar from "../../components/NavBar/NavBar";
-import Paginado from "../../components/Paginado/Paginado";
 import style from "./Home.module.css";
+import Hero from "../../components/Paginado/Hero";
 
 const Home = () => {
 
@@ -14,7 +14,7 @@ const Home = () => {
     return (
       <div className={style.background }>
           {/* <NavBar/> */}
-          <Paginado />
+          <Hero />
       </div>
     );
 };
