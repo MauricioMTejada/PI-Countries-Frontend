@@ -21,10 +21,10 @@ const Landing = () => {
 		<div className={style.background}>
 		{/* <div style={styleLanding}> */}
 		{/* <div> */}
-			<h1>PI Countries</h1>
+			<h1 className={style.title}>PI Countries</h1>
 			<Link to="/home">
 				{" "}
-				<button>Ingresar</button>{" "}
+				<button className={style.button}>Ingresar</button>{" "}
 			</Link>
 		</div>
 	);
