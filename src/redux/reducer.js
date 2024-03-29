@@ -4,6 +4,8 @@ import {
 	MAIN_PAGE,
 	ORDER_BY_NAME,
 	ORDER_BY_POPULATION,
+	ACTIVE_COUNTRIES,
+	FILTRER_AND_ORDER_COUNTRIES,
 } from "./actions/index";
 
 import {
@@ -2577,8 +2579,8 @@ const initialState = {
 	detail: [],
 	listaActividades: [],
 	getByName: [],
-	backupPaises: arrayPaises,
-	paises: arrayPaises,
+	editCountries: arrayPaises,
+	mainCountries: arrayPaises,
 	mainOrder: {
 		sortAlpha: "sinOrden",
 		sortPopul: "sinOrden",
@@ -2586,24 +2588,33 @@ const initialState = {
 		sortContinent: "All",
 	},
 	mainPage: 1,
+	activeCountries: [],
 };
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
+
 		case GET_PAISES:
-			return { ...state, paises: action.payload, backupPaises: action.payload };
+			return { ...state,
+				mainCountries: action.payload,
+				editCountries: action.payload
+			};
 
 		case GET_BY_NAME:
 			return { ...state, getByName: action.payload };
 
 		case FILTER_BY_CONTINENT:
-			return { ...state, paises: action.payload };
+			// console.log(`en el Redux:`);
+			// console.log(action.payload);
+			return { ...state, editCountries: action.payload };
 
 		case ORDER_BY_NAME:
-			return { ...state, paises: action.payload };
+			console.log(`en el Redux:`);
+			console.log(action.payload);
+			return { ...state, editCountries: action.payload };
 
 		case ORDER_BY_POPULATION:
-			return { ...state, paises: action.payload };
+			return { ...state, editCountries: action.payload };
 
 		case GET_DETAILS:
 			return { ...state, detail: action.payload };
@@ -2612,7 +2623,7 @@ const rootReducer = (state = initialState, action) => {
 			return { ...state, listaActividades: action.payload };
 
 		case FILTER_BY_ACTIVITIES:
-			return { ...state, paises: action.payload };
+			return { ...state, mainCountries: action.payload };
 
 		case MAIN_ORDER:
 			return {
@@ -2624,6 +2635,17 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				mainPage: action.payload,
+			};
+
+		case ACTIVE_COUNTRIES:
+			return {
+                ...state,
+                activeCountries: action.payload,
+            };
+
+		case FILTRER_AND_ORDER_COUNTRIES:
+			return { ...state,
+				editCountries: action.payload
 			};
 
 		default:

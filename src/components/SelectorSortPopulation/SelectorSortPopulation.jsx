@@ -10,7 +10,7 @@ export default function SelectorSortPopulation() {
 		//console.log(element.target.value);
 		const setValue = element.target.value;
 
-		dispatch(orderByPopulation(setValue));
+		// dispatch(orderByPopulation(setValue));
 		dispatch(
 			actionMainOrder({
 				...mainOrder,
@@ -25,19 +25,15 @@ export default function SelectorSortPopulation() {
 			<div className={style.cardDecoration}></div>
 			<div className={style.container}>
 				<span style={{ paddingRight: "5px" }}>
-					{" "}
-					<strong>
-						{" "}
-						{`Países ordenados de acuerdo a la cantidad de habitantes:`}{" "}
-					</strong>{" "}
+					{" "} <strong> {" "} {`Países ordenados de acuerdo a la cantidad de habitantes:`}{" "} </strong>{" "}
 				</span>
 
 				<select
 					value={mainOrder.sortPopul}
 					onChange={(element) => handleSortPoblación(element)}>
 					<option value="sinOrden">- Elija un orden -</option>
-					<option value="asc">Ascendente</option>
-					<option value="desc">Descendente</option>
+					<option value="ascendente">Ascendente</option>
+					<option value="descendente">Descendente</option>
 				</select>
 			</div>
 		</div>

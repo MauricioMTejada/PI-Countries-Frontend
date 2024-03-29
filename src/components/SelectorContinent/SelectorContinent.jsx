@@ -6,24 +6,22 @@ export function SelectorContinent() {
 	const dispatch = useDispatch();
 
 	const mainOrder = useSelector(state => state.mainOrder);
-	const paises = useSelector(state => state.paises);
-    console.log(mainOrder);
-	console.log(paises);
+    // console.log(mainOrder);
 
 	// Orden por Continente:
 	function handleFilterContinent(event) {
-		const orderContinent = event.target.value;
-		dispatch(filterContinent(orderContinent));
+		const setValue = event.target.value;
+		// dispatch(filterContinent(setValue));
 
 		dispatch(actionMainOrder({
 			...mainOrder,
 			sortPopul: "sinOrden",
 			sortAlpha: "sinOrden",
 			sortActivity: "Choose",
-			sortContinent: orderContinent,
+			sortContinent: setValue,
 		}))
 
-		dispatch(mainPage(1));
+		// dispatch(mainPage(1));
 
 	}
 

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { mainPage, activeCountries } from "../../redux/actions/index";
 import style from "./Pagination.module.css";
-import { mainPage } from "../../redux/actions/index";
 
 export const Pagination = () => {
 
     const dispatch = useDispatch();
 
     // Arreglo de Países:
-        const allPaises = useSelector((state) => state.paises);
+        const allPaises = useSelector((state) => state.editCountries);
 
 	// Número de página actual:
         const activePage = useSelector((state) => state.mainPage);
@@ -25,11 +25,16 @@ export const Pagination = () => {
             indexOfLastCountry
         );
 
+    // Seteo de elementos en el estado de Redux usando useEffect:
+    useEffect(() => {
+        dispatch(activeCountries(currentCountry));
+    }, [currentCountry, dispatch]);
+
 	// Función que setea el número de página a renderizar:
-	const handlePaginado = (pageNumber) => {
-        dispatch(mainPage(pageNumber));
-		console.log(pageNumber);
-	};
+		const handlePaginado = (pageNumber) => {
+			dispatch(mainPage(pageNumber));
+			console.log(pageNumber);
+		};
 
 	// Array de números de paginado a los que se le dará un vínculo:
         const pageNumbers = [];

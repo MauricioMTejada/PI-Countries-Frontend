@@ -10,7 +10,7 @@ export default function SelectorSortAlphabetical() {
 		//console.log(element.target.value);
 		const setValue = element.target.value;
 
-		dispatch(orderByName(setValue));
+		// dispatch(orderByName(setValue));
 		dispatch(
 			actionMainOrder({
 				...mainOrder,
@@ -25,8 +25,7 @@ export default function SelectorSortAlphabetical() {
 			<div className={style.cardDecoration}></div>
 			<div className={style.container}>
 				<span style={{ paddingRight: "5px" }}>
-					{" "}
-					<strong>{`Países ordenados por orden alfabético:`}</strong>{" "}
+					{" "} <strong>{`Países ordenados por orden alfabético:`}</strong>{" "}
 				</span>
 
 				<select

@@ -5,7 +5,7 @@ export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export function orderByPopulation(orden) {
 	let allPaises = store.getState().paises;
 
-	if (orden === "asc") {
+	if (orden === "ascendente") {
 		allPaises.sort(function (a, b) {
 			if (a.poblacion > b.poblacion) {
 				return 1;
@@ -17,7 +17,7 @@ export function orderByPopulation(orden) {
 		});
 	}
 
-	if (orden === "desc") {
+	if (orden === "descendente") {
 		allPaises.sort(function (a, b) {
 			if (a.poblacion < b.poblacion) {
 				return 1;

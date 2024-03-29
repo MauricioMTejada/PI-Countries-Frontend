@@ -3,7 +3,8 @@ import store from "../store";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 
 export function orderByName(orden) {
-	let allPaises = store.getState().paises;
+	let allPaises = store.getState().editCountries;
+	console.log(orden);
 
 	if (orden === "ascendente") {
 		allPaises.sort(function (a, b) {
