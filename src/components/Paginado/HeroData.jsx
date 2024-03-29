@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filtrerAndOrderCountries } from "../../redux/actions/index";
+import { filtrerAndOrderCountries, mainPage } from "../../redux/actions/index";
 
 import { SelectorGrouper } from "../SelectorGrouper/SelectorGrouper";
 import { Pagination } from "../Pagination/Pagination";

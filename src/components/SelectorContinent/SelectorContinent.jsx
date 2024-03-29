@@ -1,28 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./SelectorContinent.module.css";
-import { actionMainOrder, filterContinent, mainPage } from "../../redux/actions/index";
+import { actionMainOrder, mainPage } from "../../redux/actions/index";
 
 export function SelectorContinent() {
 	const dispatch = useDispatch();
 
-	const mainOrder = useSelector(state => state.mainOrder);
-    // console.log(mainOrder);
+	const mainOrder = useSelector((state) => state.mainOrder);
+	// console.log(mainOrder);
 
-	// Orden por Continente:
 	function handleFilterContinent(event) {
 		const setValue = event.target.value;
-		// dispatch(filterContinent(setValue));
 
-		dispatch(actionMainOrder({
-			...mainOrder,
-			sortPopul: "sinOrden",
-			sortAlpha: "sinOrden",
-			sortActivity: "Choose",
-			sortContinent: setValue,
-		}))
+		dispatch(
+			actionMainOrder({
+				...mainOrder,
+				sortPopul: "sinOrden",
+				sortAlpha: "sinOrden",
+				sortActivity: "Choose",
+				sortContinent: setValue,
+			})
+		);
 
-		// dispatch(mainPage(1));
-
+		dispatch(mainPage(1));
 	}
 
 	return (

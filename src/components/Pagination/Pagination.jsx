@@ -4,43 +4,42 @@ import { mainPage, activeCountries } from "../../redux/actions/index";
 import style from "./Pagination.module.css";
 
 export const Pagination = () => {
+	const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-
-    // Arreglo de Países:
-        const allPaises = useSelector((state) => state.editCountries);
+	// Arreglo de Países:
+	const allPaises = useSelector((state) => state.editCountries);
 
 	// Número de página actual:
-        const activePage = useSelector((state) => state.mainPage);
+	const activePage = useSelector((state) => state.mainPage);
 
 	// Cantidad de elementos a renderizar:
-	    const presentarPaises = 10;
+	const presentarPaises = 10;
 	// Último elemento:
-	    const indexOfLastCountry = activePage * presentarPaises;
+	const indexOfLastCountry = activePage * presentarPaises;
 	// Primer elemento:
-	    const indexOfFirstCounty = indexOfLastCountry - presentarPaises;
+	const indexOfFirstCounty = indexOfLastCountry - presentarPaises;
 	// Extraigo del array los elementos a renderizar
-        const currentCountry = allPaises.slice(
-            indexOfFirstCounty,
-            indexOfLastCountry
-        );
+	const currentCountry = allPaises.slice(
+		indexOfFirstCounty,
+		indexOfLastCountry
+	);
 
-    // Seteo de elementos en el estado de Redux usando useEffect:
-    useEffect(() => {
-        dispatch(activeCountries(currentCountry));
-    }, [currentCountry, dispatch]);
+	// Seteo de elementos en el estado de Redux usando useEffect:
+	useEffect(() => {
+		dispatch(activeCountries(currentCountry));
+	}, [currentCountry, dispatch]);
 
 	// Función que setea el número de página a renderizar:
-		const handlePaginado = (pageNumber) => {
-			dispatch(mainPage(pageNumber));
-			console.log(pageNumber);
-		};
+	const handlePaginado = (pageNumber) => {
+		dispatch(mainPage(pageNumber));
+		console.log(pageNumber);
+	};
 
 	// Array de números de paginado a los que se le dará un vínculo:
-        const pageNumbers = [];
-        for (let i = 0; i < Math.ceil(allPaises.length / presentarPaises); i++) {
-            pageNumbers.push(i + 1);
-        }
+	const pageNumbers = [];
+	for (let i = 0; i < Math.ceil(allPaises.length / presentarPaises); i++) {
+		pageNumbers.push(i + 1);
+	}
 
 	return (
 		<nav>
@@ -48,13 +47,17 @@ export const Pagination = () => {
 				{pageNumbers.length > 1 &&
 					pageNumbers.map((number) => (
 						<a
-							className={style.numeroContainer}
+							className={`${style.numeroContainer} ${
+								number === activePage ? style.numeroContainerActive : ""
+							}`}
 							key={"a" + number}
 							href={`#${number}a`}>
 							<span
 								href={`#${number}`}
 								key={number}
-								className={style.numeroStyle}
+								className={`${style.numeroStyle} ${
+									number === activePage ? style.numeroActive : ""
+								}`}
 								onClick={() => handlePaginado(number)}>
 								{number}
 							</span>

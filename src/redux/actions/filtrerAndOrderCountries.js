@@ -25,7 +25,6 @@ const filterContinent = (countries, filterAndOrder) => {
 	const filter =
 		order === "All"
 			? countries
-            // ? countries.filter((element) => element.continente === order)
 			: countries.filter((element) => element.continente === order);
 
 	return filter;
