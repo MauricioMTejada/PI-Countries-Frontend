@@ -49,5 +49,10 @@
   }
 
 .button {
+  display: flex;
+  flex-direction: row;
+
+  background-color: #121e2d;
   color: #f16c65;
+  align-items: baseline;
 }

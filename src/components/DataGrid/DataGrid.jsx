@@ -8,11 +8,7 @@ export const DataGrid = ({}) => {
 
 	return (
 		<div className={style.container}>
-			{/* {console.log(activeCountries)} */}
 			{activeCountries.map((pais) => {
-				{
-					/* {array.map((pais) => { */
-				}
 				return (
 					<Card
 						key={pais.id}
@@ -24,6 +20,7 @@ export const DataGrid = ({}) => {
 						subregion={pais.subregion}
 						area={pais.area}
 						poblacion={pais.poblacion}
+						stringPoblacion={pais.stringPoblacion}
 					/>
 				);
 			})}

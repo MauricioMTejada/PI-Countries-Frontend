@@ -6,25 +6,24 @@ import {
 	ORDER_BY_POPULATION,
 	ACTIVE_COUNTRIES,
 	FILTRER_AND_ORDER_COUNTRIES,
+	GET_DETAILS,
 } from "./actions/index";
 
 import {
 	GET_PAISES,
 	GET_BY_NAME,
-	GET_DETAILS,
 	GET_LIST_ATIVITIES,
 	FILTER_BY_ACTIVITIES,
 } from "./actions";
 
-import { arrayPaises } from "../mock/dataMock";
-
+import { getData } from "../utils/getData/getData";
 
 const initialState = {
 	detail: [],
 	listaActividades: [],
 	getByName: [],
-	editCountries: arrayPaises,
-	mainCountries: arrayPaises,
+	editCountries: getData(),
+	mainCountries: getData(),
 	mainOrder: {
 		sortAlpha: "sinOrden",
 		sortPopul: "sinOrden",
@@ -37,11 +36,11 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-
 		case GET_PAISES:
-			return { ...state,
+			return {
+				...state,
 				mainCountries: action.payload,
-				editCountries: action.payload
+				editCountries: action.payload,
 			};
 
 		case GET_BY_NAME:
@@ -83,14 +82,12 @@ const rootReducer = (state = initialState, action) => {
 
 		case ACTIVE_COUNTRIES:
 			return {
-                ...state,
-                activeCountries: action.payload,
-            };
+				...state,
+				activeCountries: action.payload,
+			};
 
 		case FILTRER_AND_ORDER_COUNTRIES:
-			return { ...state,
-				editCountries: action.payload
-			};
+			return { ...state, editCountries: action.payload };
 
 		default:
 			return { ...state };

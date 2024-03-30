@@ -5,3 +5,4 @@ export * from './orderByName';
 export * from './orderByPopulation';
 export * from './activeCountries';
 export * from './filtrerAndOrderCountries';
+export * from './getDetails'

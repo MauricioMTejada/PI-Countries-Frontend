@@ -1,4 +1,4 @@
-export const arrayPaises = [
+export const dataMock = [
 	{
 		id: "NRU",
 		nombre: "Nauru",

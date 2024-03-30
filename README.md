@@ -9,6 +9,14 @@ _Una de las características destacadas es la función para cargar actividades t
 _Al hacer clic en una tarjeta de país, los usuarios son redirigidos a otra vista con información detallada del país seleccionado, lo que facilita una exploración más profunda y completa._
 
 ---
-Ejecutar el proyecto localmente:
+### Ejecutar el proyecto localmente:
+
+_archivo "src\utils\getData\getData.js", setear las variables:_
+
+`const localhost = true;`
+
+`const api = false;`
+
+_ejecutar:_
 
 `npm run dev`
