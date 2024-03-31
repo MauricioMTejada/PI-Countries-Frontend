@@ -28,3 +28,30 @@
   border-radius: 10px;
   border: 2px solid #659ccb; */
 }
+
+.text {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .text {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 886px) {
+  .text {
+    padding: 0 5px;
+  }
+}

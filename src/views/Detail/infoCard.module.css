@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.pillsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pill {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #659ccb;
+    border-radius: 5px;
+}
+
+.contentImage {
+    display: flex;
+    width: 50px;
+    background-color: #233c57;
+    padding: 0.2rem;
+    box-sizing: border-box;
+}
+
+.image {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+
+.title {
+    display: flex;
+    color: #121e2d;
+    /* background-color: #659ccb; */
+    background-color: #f16c65;
+    width: 100%;
+    padding-left: 1rem;
+    box-sizing: border-box;
+}
+
+.text {
+    display: flex;
+    /* background-color: #659ccb; */
+    /* background-color: #f16c65; */
+    width: 100%;
+    padding-left: 1rem;
+    box-sizing: border-box;
+}

@@ -5,7 +5,7 @@
 } */
 
 .imagenFondo {
-    background-image: url("./planisferio.jpg");
+    background-image: url("../../assets/backgrounds/planisferio.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -19,6 +19,7 @@
 
   h1 {
     margin-top: 0;
+    font-size: 4em;
   }
 
   .background {
@@ -28,7 +29,7 @@
 	align-items: center;
 	/* color: #310336; */
 
-	background-image: url("../../assets/planisferio.jpg");
+	background-image: url("../../assets/backgrounds/planisferio.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -41,10 +42,12 @@
 }
 
 .title {
+  color: #121e2d;
+  /* mix-blend-mode: difference; */
     /* Grosor del contorno */
-    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-width: 1px;
     /* Color del contorno */
-    -webkit-text-stroke-color: #233c57;
+    -webkit-text-stroke-color: #659ccb;
 
   }
 

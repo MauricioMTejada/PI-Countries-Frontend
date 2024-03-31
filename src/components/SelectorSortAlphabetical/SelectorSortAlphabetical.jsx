@@ -24,9 +24,11 @@ export default function SelectorSortAlphabetical() {
 		<div className={style.mainContainer}>
 			<div className={style.cardDecoration}></div>
 			<div className={style.container}>
-				<span style={{ paddingRight: "5px" }}>
-					{" "} <strong>{`Países ordenados por orden alfabético:`}</strong>{" "}
-				</span>
+				<div className={style.text}>
+					<span>
+						{" "} <strong>{`Orden alfabético:`}</strong>{" "}
+					</span>
+				</div>
 
 				<select
 					value={mainOrder.sortAlpha}

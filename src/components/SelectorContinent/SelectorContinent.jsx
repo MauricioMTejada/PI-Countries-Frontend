@@ -26,7 +26,9 @@ export function SelectorContinent() {
 
 	return (
 		<div className={style.mainContainer}>
+
 			<div className={style.cardDecoration}></div>
+
 			<div className={style.container}>
 				<span className={style.leftElement}>
 					{" "}

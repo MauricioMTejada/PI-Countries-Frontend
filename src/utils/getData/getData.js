@@ -26,7 +26,7 @@ export const getData = () => {
         data = dataMock;
         let formatData = addPropPopulationString(data);
         formatData = addPropAreaString(formatData);
-        console.log(formatData);
+        // console.log(formatData);
         return formatData;
     }
 }

@@ -24,9 +24,11 @@ export default function SelectorSortPopulation() {
 		<div className={style.mainContainer}>
 			<div className={style.cardDecoration}></div>
 			<div className={style.container}>
-				<span style={{ paddingRight: "5px" }}>
-					{" "} <strong> {" "} {`Países ordenados de acuerdo a la cantidad de habitantes:`}{" "} </strong>{" "}
-				</span>
+				<div className={style.text}>
+					<span>
+						{" "} <strong> {" "} {`Orden por cantidad de habitantes:`}{" "} </strong>{" "}
+					</span>
+				</div>
 
 				<select
 					value={mainOrder.sortPopul}

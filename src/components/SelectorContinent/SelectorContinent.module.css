@@ -1,41 +1,52 @@
 .mainContainer {
-  position: relative;
-  background-color: #121e2d;
-  border-radius: 10px;
-  border: 2px solid #659ccb;
+	position: relative;
+	background-color: #121e2d;
+	border-radius: 10px;
+	border: 2px solid #659ccb;
 }
 
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  /* width: 100%; */
-  padding: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	/* width: 100%; */
+	padding: 5px;
+	padding-left: 10px;
 
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .cardDecoration {
-  position: absolute;
-  width: 0.5rem;
-  height: 100%;
-  background-color: #f16c65;
-  align-self: flex-start;
-  border-radius: 10px 0 0 10px;
+	position: absolute;
+	width: 0.5rem;
+	height: 100%;
+	background-color: #f16c65;
+	align-self: flex-start;
+	border-radius: 10px 0 0 10px;
 }
 
-  .leftElement {
-    flex: 1; /* Ocupar todo el espacio disponible */
-    text-align: right; /* Alinear a la izquierda */
-    color: var(--color-text);
-    padding-right: 5px;
-    font-size: 2em;
-  }
+.leftElement {
+	flex: 1;
+	/* Ocupar todo el espacio disponible */
+	text-align: right;
+	/* Alinear a la izquierda */
+	color: var(--color-text);
+	padding-right: 5px;
+	font-size: 2em;
+}
 
-  .rightElement {
-    flex: 1; /* Ocupar todo el espacio disponible */
-    text-align: left; /* Alinear a la derecha */
-    padding-left: 5px;
+.rightElement {
+	flex: 1;
+	/* Ocupar todo el espacio disponible */
+	text-align: left;
+	/* Alinear a la derecha */
+	padding-left: 5px;
 
-  }
+}
+
+@media screen and (max-width: 450px) {
+	.container {
+		flex-direction: column;
+	}
+}
