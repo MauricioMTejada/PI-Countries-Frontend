@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from "react";
-import style from "./Hero.module.css";
-import CardsContainer from "../CardsContainer/CardsContainer";
-import SelectorSortAlphabetical from "../SelectorSortAlphabetical/SelectorSortAlphabetical";
-import SelectorSortPopulation from "../SelectorSortPopulation/SelectorSortPopulation";
-import { SelectorContinent } from "../SelectorContinent/SelectorContinent";
-import SelectorActivity from "../SelectorActivity/SelectorActivity";
 import { useSelector } from "react-redux";
 import HeroLoading from "./HeroLoading";
 import HeroData from "./HeroData";

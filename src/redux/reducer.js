@@ -7,23 +7,21 @@ import {
 	ACTIVE_COUNTRIES,
 	FILTRER_AND_ORDER_COUNTRIES,
 	GET_DETAILS,
+	GET_COUNTRIES,
 } from "./actions/index";
 
 import {
-	GET_PAISES,
 	GET_BY_NAME,
 	GET_LIST_ATIVITIES,
 	FILTER_BY_ACTIVITIES,
 } from "./actions";
 
-import { getData } from "../utils/getData/getData";
-
 const initialState = {
 	detail: [],
 	listaActividades: [],
 	getByName: [],
-	editCountries: getData(),
-	mainCountries: getData(),
+	editCountries: [],
+	mainCountries: [],
 	mainOrder: {
 		sortAlpha: "sinOrden",
 		sortPopul: "sinOrden",
@@ -36,7 +34,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case GET_PAISES:
+		case GET_COUNTRIES:
 			return {
 				...state,
 				mainCountries: action.payload,

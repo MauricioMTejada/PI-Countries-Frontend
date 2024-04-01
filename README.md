@@ -11,12 +11,14 @@ _Al hacer clic en una tarjeta de país, los usuarios son redirigidos a otra vist
 ---
 ### Ejecutar el proyecto localmente:
 
-_archivo "src\utils\getData\getData.js", setear las variables:_
+- _archivo "src\utils\getData\getData.js", colocar la siguiente variable en false:_
 
-`const localhost = true;`
+    `const api = false;`
 
-`const api = false;`
+- _archivo ".env.js", descomentar la siguiente variable:_
 
-_ejecutar:_
+    `SERVER_URL=http://localhost:3002/`
 
-`npm run dev`
+- _ejecutar:_
+
+    `npm run dev`

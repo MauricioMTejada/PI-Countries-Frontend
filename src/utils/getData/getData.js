@@ -1,32 +1,38 @@
-import { addPropAreaString } from "../formatData/formatArea";
-import { addPropPopulationString } from "../formatData/formatPopulationData";
+import { formatData } from "../formatData/formatData";
 import { dataMock } from "../mock/dataMock";
 
+// Direcciones de Api Local:
+const API_LOCAL = "http://localhost:3002";
+
+// Direcciones de Api Remota:
+const API_REMOTE = "";
+
 const configGetData = () => {
+	// trabajo con api?
+	// SI => api = true
+	// No => api = false
+	const api = true;
 
-    // trabajo con datos locales?
-	const localhost = true;
+	// trabajo con api local?
+	// SI => localApi = true
+	// No => localApi = false
+	const localApi = true;
 
-    // trabajo con api?
-	const api = false;
-
-	return {
-		localhost,
-		api,
-	};
+	return { api, localApi };
 };
 
 export const getData = () => {
+	const { api, localApi } = configGetData();
 
-    const { localhost, api } = configGetData();
+	const apiUrl = localApi ? API_LOCAL : API_REMOTE;
 
-    let data = []
+	let data = [];
 
-    if (localhost) {
-        data = dataMock;
-        let formatData = addPropPopulationString(data);
-        formatData = addPropAreaString(formatData);
-        // console.log(formatData);
-        return formatData;
-    }
-}
+	if (!api) {
+		data = dataMock;
+
+        data = formatData({data, paramData: "mock"});
+	}
+
+	return { api, apiUrl, data };
+};

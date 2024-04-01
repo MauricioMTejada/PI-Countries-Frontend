@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPaises } from "../../redux/actions";
 import axios from "axios";
 import style from "./Form.module.css";
 import NavBar from "../../components/NavBar/NavBar";
@@ -9,6 +8,7 @@ import Dificultad from "../../components/FormDificultad";
 import Duracion from "../../components/FormDuracion";
 import Temporada from "../../components/FormTemporada";
 import ListaDesplegablePais from "../../components/FormListaDesplegablePais";
+import { getCountries } from "../../redux/actions/index";
 
 const Form = () => {
   // Estados
@@ -29,7 +29,7 @@ const Form = () => {
 
   // Solicito información de todos los países al servidor.
       const dispatch = useDispatch();
-      useEffect(() => { dispatch(getPaises()); }, [dispatch]);
+      useEffect(() => { dispatch(getCountries()); }, [dispatch]);
 
   // Handler
       const changeHandler = (event) => {

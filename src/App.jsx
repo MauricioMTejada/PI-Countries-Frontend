@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Detail, Form, Home, Landing } from "./views";
 import "./App.css";
+import { getData } from "./utils/getData/getData";
+import { getCountries } from "./redux/actions/index";
+import { useDispatch } from "react-redux";
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const { apiUrl, api, data } = getData();
+		dispatch(getCountries(apiUrl, api, data));
+	}, [dispatch]);
+
 	return (
 		<div className="App">
 			<Routes>
