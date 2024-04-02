@@ -8,3 +8,5 @@ export * from './filtrerAndOrderCountries';
 export * from './getDetails';
 export * from './getCountries';
 export * from './getByName';
+export * from './setFormActivity';
+export * from './setFormErrors';

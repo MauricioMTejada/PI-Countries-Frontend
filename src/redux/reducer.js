@@ -9,6 +9,8 @@ import {
 	GET_DETAILS,
 	GET_COUNTRIES,
 	GET_BY_NAME,
+	SET_FORM_ACTIVITY,
+	SET_FORM_ERRORS,
 } from "./actions/index";
 
 import { GET_LIST_ATIVITIES, FILTER_BY_ACTIVITIES } from "./actions";
@@ -27,6 +29,22 @@ const initialState = {
 	},
 	mainPage: 1,
 	activeCountries: [],
+	activitiesFormState: {
+		nombre: "",
+		dificultad: 1,
+		duracion: 1,
+		temporada: "Verano",
+		pais1: "",
+		pais2: "",
+		pais3: "",
+	},
+	activitiesFormErrors: {
+		nombre: "",
+		dificultad: "",
+		duracion: "",
+		temporada: "",
+		pais: "",
+	},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -83,6 +101,12 @@ const rootReducer = (state = initialState, action) => {
 
 		case FILTRER_AND_ORDER_COUNTRIES:
 			return { ...state, editCountries: action.payload };
+
+		case SET_FORM_ACTIVITY:
+			return { ...state, activitiesFormState: action.payload };
+
+		case SET_FORM_ERRORS:
+			return { ...state, activitiesFormErrors: action.payload };
 
 		default:
 			return { ...state };

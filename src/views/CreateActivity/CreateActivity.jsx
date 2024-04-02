@@ -1,5 +1,5 @@
 import NavBar from "../../components/NavBar/NavBar";
-import { CreateActivityData } from "./CreateActivityData";
+import { CreateActivityData } from "./childComponent/CreateActivityData";
 
 import style from "./CreateActivity.module.css";
 
