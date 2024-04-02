@@ -8,13 +8,10 @@ import {
 	FILTRER_AND_ORDER_COUNTRIES,
 	GET_DETAILS,
 	GET_COUNTRIES,
+	GET_BY_NAME,
 } from "./actions/index";
 
-import {
-	GET_BY_NAME,
-	GET_LIST_ATIVITIES,
-	FILTER_BY_ACTIVITIES,
-} from "./actions";
+import { GET_LIST_ATIVITIES, FILTER_BY_ACTIVITIES } from "./actions";
 
 const initialState = {
 	detail: [],

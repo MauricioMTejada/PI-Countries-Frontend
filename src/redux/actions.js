@@ -1,56 +1,9 @@
 import axios from "axios";
 import store from "./store"
 
-// const URLBASE = `http://localhost:3002/`;
-
-// export const GET_PAISES = "GET_PAISES";
-export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_LIST_ATIVITIES = "GET_LIST_ATIVITIES";
 export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
 export const MAIN_ORDER = "MAIN_ORDER";
-
-
-
-// Buscador de países:
-    export const getByName = (nombre) => {
-        // Adapto: primera letra mayúscula, siguientes minúsculas.
-        const name = nombre
-          .split(" ")
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-          .join(" ");
-
-        return async function (dispatch) {
-          let allPaises = store.getState().paises;
-          let bandera = false;
-          let stringId = "";
-
-          for (let i = 0; i < allPaises.length; i++) {
-            if (allPaises[i].nombre == name) {
-              dispatch({
-                type: GET_BY_NAME,
-                payload: allPaises[i] })
-              console.log(allPaises[i]);
-              bandera = true;
-              stringId = allPaises[i].id;
-            }
-          }
-
-          // console.log("bandera: " + bandera);
-
-          if (bandera) window.location.href = `/home/${stringId}`;
-
-          else {alert("País no encontrado");}
-          return;
-
-          const apiData = await axios.get(`${URLBASE}countries/?nombre=${name}`);
-          const paisByName = [apiData.data];
-          if (apiData.data === null) {
-            alert("País no encontrado");
-            return;
-          } else dispatch({ type: GET_BY_NAME, payload: paisByName });
-        };
-
-    };
 
 //Obtener actividades para la lista desplegable "Actividades"
     export function getListActivities(){

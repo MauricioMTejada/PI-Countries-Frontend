@@ -13,7 +13,7 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
       <BrowserRouter>
-        <Routes> {/* Envuelve tus rutas en un componente Routes */}
+        <Routes>
           <Route path="*" element={<App />} />
         </Routes>
       </BrowserRouter>

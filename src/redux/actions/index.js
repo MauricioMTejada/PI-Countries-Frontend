@@ -7,3 +7,4 @@ export * from './activeCountries';
 export * from './filtrerAndOrderCountries';
 export * from './getDetails';
 export * from './getCountries';
+export * from './getByName';

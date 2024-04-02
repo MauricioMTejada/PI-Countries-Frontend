@@ -42,7 +42,7 @@ export function SelectorContinent() {
 						onChange={(event) => handleFilterContinent(event)}>
 						<option value="All">Todos los Países</option>
 						<option value="Africa">África</option>
-						<option value="Antartica">Antártica</option>
+						<option value="Antarctica">Antártica</option>
 						<option value="North America">América del Norte</option>
 						<option value="South America">América del Sur</option>
 						<option value="Asia">Asia</option>

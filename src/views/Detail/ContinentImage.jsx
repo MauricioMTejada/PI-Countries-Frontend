@@ -4,7 +4,7 @@ import style from "./Detail.module.css";
 
 import {
 	Africa,
-	Antartica,
+	Antarctica,
 	Asia,
 	Europe,
 	North_America,
@@ -15,7 +15,7 @@ import {
 export const ComponentContinentImage = ({ countryDetail }) => {
 	const continentImages = {
 		Africa,
-		Antartica,
+		Antarctica,
 		Asia,
 		Europe,
 		"North America": North_America,
