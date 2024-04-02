@@ -31,6 +31,7 @@ export const getByName = (nombre) => {
       if (bandera) window.location.href = `/home/${stringId}`;
 
       else {alert("País no encontrado");}
+
       return;
 
       const apiData = await axios.get(`${URLBASE}countries/?nombre=${name}`);

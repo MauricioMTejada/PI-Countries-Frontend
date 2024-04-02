@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 
 export default function ListaDesplegablePais({changeHandler, form, errors}){
-    const allPaises = useSelector((state) => state.backupPaises)
+    const allPaises = useSelector((state) => state.mainCountries);
+
+    console.log(allPaises);
 
     function renderPaises() {
         return allPaises.map((pais) => (

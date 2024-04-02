@@ -1,6 +1,6 @@
 import Detail from "./Detail/Detail";
-import Form from "./Form/Form";
+import CreateActivity from "./CreateActivity/CreateActivity";
 import Home from "./Home/Home";
 import Landing from "./Landing/Landing";
 
-export { Detail, Form, Home, Landing };
+export { Detail, CreateActivity, Home, Landing };

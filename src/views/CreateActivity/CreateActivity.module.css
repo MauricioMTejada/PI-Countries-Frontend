@@ -1,0 +1,13 @@
+.background {
+	display: flex;
+	flex-direction: column;
+
+	background-image: url("../../assets/backgrounds/planisferio5.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	min-height: 100vh;
+	padding: 2rem;
+	box-sizing: border-box;
+	/* filter: hue-rotate(180deg); */
+}

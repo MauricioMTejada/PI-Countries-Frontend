@@ -10,7 +10,7 @@ export default function Hero() {
 
 	const allPaises = useSelector((state) => state.mainCountries);
 
-	console.log(allPaises);
+	// console.log(allPaises);
 
 	useEffect(() => {
 		// Verifica si "allPaises" tiene elementos

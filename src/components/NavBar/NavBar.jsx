@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import style from "./NavBar.module.css";
 import SearchInput from "./SearchInput";
 import Logo from "./Logo";
+import { GoToCreateActivity } from "./GoToCreateActivity";
 
 const NavBar = () => {
 	const location = useLocation();
@@ -11,6 +12,7 @@ const NavBar = () => {
 	return (
 		<div className={style.mainContainer}>
 			<Logo />
+			<GoToCreateActivity />
 			{location.pathname !== "/create" && <SearchInput />}
 		</div>
 	);
