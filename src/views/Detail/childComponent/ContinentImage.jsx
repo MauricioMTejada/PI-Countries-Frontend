@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "./Detail.module.css";
+import style from "../Detail.module.css";
 
 import {
 	Africa,
@@ -10,7 +10,7 @@ import {
 	North_America,
 	Oceania,
 	South_America,
-} from "../../assets/continents";
+} from "../../../assets/continents";
 
 export const ComponentContinentImage = ({ countryDetail }) => {
 	const continentImages = {

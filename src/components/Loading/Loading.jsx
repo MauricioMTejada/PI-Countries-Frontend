@@ -9,3 +9,12 @@ export const Loading = () => {
 		</div>
 	);
 };
+
+export const SmallLoading = () => {
+	return (
+		<div className={style.litleSpinneContainer}>
+			<div className={style.litleSpinner}>
+			</div>
+		</div>
+	);
+};

@@ -7,7 +7,7 @@ import {
 	InfoCard,
 	GoBackButton,
 } from "./index";
-import style from "./Detail.module.css";
+import style from "../Detail.module.css";
 
 
 export const DetailData = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from './Detail.module.css'
+import style from '../Detail.module.css';
 
 export const FlagImage = ({ countryDetail }) => {
   return (

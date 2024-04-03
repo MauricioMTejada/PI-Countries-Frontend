@@ -1,9 +1,8 @@
 import React from "react";
 
-import { area, capital, population, subregion } from "../../assets/decorations";
+import { area, capital, population, subregion } from "../../../assets/decorations";
 
 import styleInfoCard from "./infoCard.module.css";
-import style from "./Detail.module.css";
 
 export const InfoCard = ({ countryDetail }) => {
 	return (

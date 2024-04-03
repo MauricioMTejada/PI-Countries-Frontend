@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { getDetail } from "../../redux/actions/index";
 import { Loading } from "../../components/Loading/Loading";
-import {DetailData} from "./DetailData";
+import {DetailData} from "./childComponent/DetailData";
 import style from "./Detail.module.css";
 
 export default function Detail() {
