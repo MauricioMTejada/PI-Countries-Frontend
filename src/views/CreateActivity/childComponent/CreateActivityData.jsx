@@ -11,6 +11,7 @@ import {
 } from "./index";
 
 import style from "./CreateActivityData.module.css";
+import { TitleSection } from "../../../components/TitleSection/TitleSection";
 
 export const CreateActivityData = () => {
 	const [loading, setLoading] = useState(false);
@@ -26,14 +27,29 @@ export const CreateActivityData = () => {
 		handleSubmit(formData, formErrors, dispatch, setLoading);
 	};
 
+	const title = "Crear Actividad";
+
 	return (
 		<div className={style.mainContainer}>
+			<TitleSection title={title} />
 			<form onSubmit={submitForm}>
-				<InputNombre />
-				<Dificultad />
-				<Duracion />
-				<Temporada />
-				<ListaDesplegablePais />
+				<div className={style.gridContainer}>
+					<div className={style.gridItem01}>
+						<InputNombre />
+					</div>
+					<div className={style.gridItem02}>
+						<Dificultad />
+					</div>
+					<div className={style.gridItem03}>
+						<Temporada />
+					</div>
+					<div className={style.gridItem04}>
+						<Duracion />
+					</div>
+					<div className={style.gridItem05}>
+						<ListaDesplegablePais />
+					</div>
+				</div>
 				<div className={style.buttonContainer}>
 					<div className={style.buttonCapsule}>
 						<button type="submit">Enviar</button>

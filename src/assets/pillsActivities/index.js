@@ -1,0 +1,10 @@
+export { default as nameActivity } from './name.png';
+export { default as name02Activity } from './name02.png';
+export { default as difficultyActivity } from './difficulty.png';
+export { default as difficulty02Activity } from './difficulty02.png';
+export { default as difficulty04Activity } from './difficulty04.png';
+export { default as durationActivity } from './duration.png';
+export { default as duration02Activity } from './duration02.png';
+export { default as seasonActivity } from './season.png';
+export { default as season02Activity } from './season02.png';
+export { default as countryActivity } from './country.png';

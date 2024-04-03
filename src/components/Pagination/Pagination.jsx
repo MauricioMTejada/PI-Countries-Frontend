@@ -11,6 +11,7 @@ export const Pagination = () => {
 
 	// Número de página actual:
 	const activePage = useSelector((state) => state.mainPage);
+	console.log(activePage);
 
 	// Cantidad de elementos a renderizar:
 	const presentarPaises = 10;
@@ -22,7 +23,8 @@ export const Pagination = () => {
 	const currentCountry = allPaises.slice(
 		indexOfFirstCounty,
 		indexOfLastCountry
-	);
+		);
+		console.log(currentCountry);
 
 	// Seteo de elementos en el estado de Redux usando useEffect:
 	useEffect(() => {
@@ -45,13 +47,13 @@ export const Pagination = () => {
 		<nav>
 			<ul style={{ paddingInlineStart: "0px" }}>
 				{pageNumbers.length > 1 &&
-					pageNumbers.map((number) => (
+					pageNumbers.map((number, index) => (
 						<a
 							className={`${style.numeroContainer} ${
 								number === activePage ? style.numeroContainerActive : ""
 							}`}
-							key={"a" + number}
-							href={`#${number}a`}>
+							key={index}
+							href={`#${number}`}>
 							<span
 								href={`#${number}`}
 								key={number}

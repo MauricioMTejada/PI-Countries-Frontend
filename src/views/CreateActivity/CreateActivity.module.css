@@ -1,6 +1,7 @@
 .background {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 
 	background-image: url("../../assets/backgrounds/planisferio5.png");
 	background-size: cover;

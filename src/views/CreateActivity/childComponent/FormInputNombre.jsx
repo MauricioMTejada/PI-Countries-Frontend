@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFormActivity, setFormErrors } from "../../../redux/actions/index";
+import { PillChildren } from "../../../components/PillsData/PillsData";
+import { area } from "../../../assets/decorations";
+import { name02Activity, nameActivity } from "../../../assets/pillsActivities";
 
 export function InputNombre() {
 	const formData = useSelector((state) => state.activitiesFormState);
@@ -15,17 +18,18 @@ export function InputNombre() {
 		dispatch(setFormErrors());
 	};
 
+	const dataComponent = { title: "Nombre" };
+
 	return (
 		<>
-			<div>
-				<label>Nombre: </label>
-				<input
-					type="text"
-					value={formData.nombre}
-					onChange={handlerInputChange}
-					name="nombre"
-				/>
-			</div>
+				<PillChildren image={name02Activity} title="Nombre de la actividad">
+					<input
+						type="text"
+						value={formData.nombre}
+						onChange={handlerInputChange}
+						name="nombre"
+					/>
+				</PillChildren>
 
 			{formErrors.nombre && <span>{formErrors.nombre}</span>}
 		</>

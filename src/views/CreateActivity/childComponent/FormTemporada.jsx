@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setFormActivity } from "../../../redux/actions/index";
+import { PillChildren } from "../../../components/PillsData/PillsData";
+import { season02Activity } from "../../../assets/pillsActivities";
 
 export function Temporada() {
 	const formData = useSelector((state) => state.activitiesFormState);
@@ -14,7 +16,7 @@ export function Temporada() {
 
 	return (
 		<div>
-			<span>Temporada: </span>
+			<PillChildren image={season02Activity} title="Temporada">
 			<select
 				onChange={handlerInputChange}
 				value={formData.temporada}
@@ -24,6 +26,7 @@ export function Temporada() {
 				<option value="Inverno">Inverno</option>
 				<option value="Primavera">Primavera</option>
 			</select>
+			</PillChildren>
 		</div>
 	);
 }

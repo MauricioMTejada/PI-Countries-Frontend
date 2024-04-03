@@ -1,10 +1,33 @@
 .mainContainer {
-	/* position: relative; */
+	padding: 1rem;
 	background-color: #121e2d;
 	border-radius: 10px;
 	border: 2px solid #659ccb;
 	position: relative;
-	/* Agregamos posición relativa para que los elementos absolutos sean relativos a este contenedor */
+	box-sizing: border-box;
+	min-width: 502px;
+	max-width: 730px;
+	width: 100%;
+	/* margin: 0 auto; */
+}
+
+.gridContainer {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(150px, 1fr));
+	gap: 0.5rem;
+
+}
+
+.gridItem01 {
+	grid-column: span 2;
+}
+
+.gridItem03 {
+	grid-column: span 2;
+}
+
+.gridItem05 {
+	grid-column: span 3;
 }
 
 .buttonContainer {
