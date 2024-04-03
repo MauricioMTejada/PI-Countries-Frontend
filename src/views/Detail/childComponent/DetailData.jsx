@@ -11,7 +11,7 @@ import style from "../Detail.module.css";
 
 
 export const DetailData = () => {
-	const countryDetail = useSelector((state) => state.detail);
+	const [countryDetail] = useSelector((state) => state.detail);
 
 	return (
 		<div className={style.card}>

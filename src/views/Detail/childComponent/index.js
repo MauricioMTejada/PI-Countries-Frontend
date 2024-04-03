@@ -1,4 +1,3 @@
-export * from './array'
 export * from '../Detail'
 export * from './FlagImage';
 export * from './ContinentImage';

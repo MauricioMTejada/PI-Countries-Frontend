@@ -14,9 +14,10 @@ export const getCountries = (apiUrl, api, data) => {
 				const response = await axios.get(`${apiUrl}/countries/`);
 
                 const data = response.data;
-                const formatedData = formatData(data);
-				dispatch({ type: GET_COUNTRIES, payload: response.data });
-				// dispatch({ type: GET_COUNTRIES, payload: [] });
+				const paramData = 'api';
+                const formatedData = formatData({data, paramData} );
+				// console.log(formatedData);
+				dispatch({ type: GET_COUNTRIES, payload: formatedData });
 			}
 		} catch (error) {
 			console.error("Error al obtener la lista de países:", error);
