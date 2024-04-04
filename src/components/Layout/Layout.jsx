@@ -32,9 +32,7 @@ export const Layout = ({ children }) => {
 			style={{ backgroundImage: `url(${backgroundImage})` }}
 		>
 			<NavBar />
-			<div className={style.content}>
-				<main className={style.main}>{children}</main>
-			</div>
+			{children}
 		</div>
 	);
 };

@@ -1,0 +1,15 @@
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    gap: 1rem;
+	padding: 1rem;
+	background-color: var(--color-background-01);
+	border-radius: 10px;
+	border: 2px solid var(--color-border);
+	position: relative;
+	box-sizing: border-box;
+	min-width: 500px;
+	max-width: 750px;
+	width: 100%;
+}

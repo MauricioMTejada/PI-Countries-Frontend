@@ -1,12 +1,12 @@
-import React from 'react'
-import { Layout } from '../../components/Layout/Layout'
+import { Layout } from "../../components/Layout/Layout";
+import { AssignActivityData } from "./childrenComponents/index";
 
 const AssignActivity = () => {
-  return (
-    <Layout>
-        <h1>AssignActivity</h1>
-      </Layout>
-  )
-}
+	return (
+		<Layout>
+			<AssignActivityData />
+		</Layout>
+	);
+};
 
-export default AssignActivity
+export default AssignActivity;

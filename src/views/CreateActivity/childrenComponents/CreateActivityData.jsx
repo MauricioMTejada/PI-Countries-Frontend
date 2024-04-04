@@ -11,6 +11,7 @@ import {
 } from "./index";
 
 import { TitleSection } from "../../../components/TitleSection/TitleSection";
+import { PaperBackground } from "../../../components/PaperBackground/PaperBackground";
 import style from "./CreateActivityData.module.css";
 
 export const CreateActivityData = () => {
@@ -30,7 +31,7 @@ export const CreateActivityData = () => {
 	const title = "Crear Actividad Turística";
 
 	return (
-		<div className={style.mainContainer}>
+		<PaperBackground>
 			<TitleSection title={title} />
 			<form onSubmit={submitForm}>
 				<div className={style.gridContainer}>
@@ -52,6 +53,6 @@ export const CreateActivityData = () => {
 				</div>
 				<SubmitButton loading={loading} />
 			</form>
-		</div>
+		</PaperBackground>
 	);
 };
