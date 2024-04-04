@@ -2,12 +2,13 @@ import React from "react";
 import style from "./Layout.module.css";
 import NavBar from "../NavBar/NavBar";
 import { useLocation } from "react-router-dom";
-import { backgroundHome, backgroundCreateActivity, backgroundDetail } from "../../assets/backgrounds";
+import { backgroundHome, backgroundCreateActivity, backgroundDetail, backgroundAssignActivity } from "../../assets/backgrounds";
 
 
 const routeBackgrounds = {
 	"/home": backgroundHome,
 	"/createActivity": backgroundCreateActivity,
+	"/assignActivity": backgroundAssignActivity,
 };
 
 backgroundHome

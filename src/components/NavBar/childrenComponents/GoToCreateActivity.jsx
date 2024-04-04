@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import style from "./GoToCreateActivity.module.css";
+import style from "./GoTo.module.css";
 
 export const GoToCreateActivity = () => {
 	const location = useLocation();

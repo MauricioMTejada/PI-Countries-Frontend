@@ -3,19 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 
 import style from "./GoTo.module.css";
 
-export const GoToCountries = () => {
+export const GoToAssignActivity = () => {
 	const location = useLocation();
 
-	const isHome = location.pathname === "/home";
+	const isHome = location.pathname === "/assignActivity";
 
 	return (
 		<>
 			<div className={style.logoContainer}>
 				{" "}
 				<Link
-					to="/home"
+					to="/assignActivity"
 					className={`${style.logoLink} ${isHome ? style.active : ""}`}>
-					Países
+					Asignar Actividad
 				</Link>
 			</div>
 		</>

@@ -27,7 +27,7 @@ export const CreateActivityData = () => {
 		handleSubmit(formData, formErrors, dispatch, setLoading);
 	};
 
-	const title = "Crear Actividad";
+	const title = "Crear Actividad Turística";
 
 	return (
 		<div className={style.mainContainer}>
@@ -46,9 +46,9 @@ export const CreateActivityData = () => {
 					<div className={style.gridItem04}>
 						<Duracion />
 					</div>
-					<div className={style.gridItem05}>
+					{/* <div className={style.gridItem05}>
 						<ListaDesplegablePais />
-					</div>
+					</div> */}
 				</div>
 				<SubmitButton loading={loading} />
 			</form>

@@ -1,7 +1,12 @@
 import React from 'react'
+import { Layout } from '../../components/Layout/Layout'
 
-export const AssignActivity = () => {
+const AssignActivity = () => {
   return (
-    <div>AssignActivity</div>
+    <Layout>
+        <h1>AssignActivity</h1>
+      </Layout>
   )
 }
+
+export default AssignActivity

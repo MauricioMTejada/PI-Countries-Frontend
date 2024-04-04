@@ -1,6 +1,6 @@
 import React from "react";
 import { SmallLoading } from "../../../components/Loading/Loading";
-import style from "./CreateActivityData.module.css";
+import style from "./SubmitButton.module.css";
 
 export const SubmitButton = ({ loading }) => {
   return (
