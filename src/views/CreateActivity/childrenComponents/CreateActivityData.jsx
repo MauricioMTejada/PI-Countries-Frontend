@@ -7,11 +7,11 @@ import {
 	Duracion,
 	Temporada,
 	ListaDesplegablePais,
-	handleSubmit,
+	handleSubmit,SubmitButton
 } from "./index";
 
-import style from "./CreateActivityData.module.css";
 import { TitleSection } from "../../../components/TitleSection/TitleSection";
+import style from "./CreateActivityData.module.css";
 
 export const CreateActivityData = () => {
 	const [loading, setLoading] = useState(false);
@@ -50,16 +50,7 @@ export const CreateActivityData = () => {
 						<ListaDesplegablePais />
 					</div>
 				</div>
-				<div className={style.buttonContainer}>
-					<div className={style.buttonCapsule}>
-						<button type="submit">Enviar</button>
-						{loading && (
-							<div className={style.SmallLoading}>
-								<SmallLoading />
-							</div>
-						)}
-					</div>
-				</div>
+				<SubmitButton loading={loading} />
 			</form>
 		</div>
 	);

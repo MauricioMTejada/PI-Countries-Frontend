@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { Detail, CreateActivity, Home, Landing } from "./views";
-import "./App.css";
 import { getData } from "./utils/getData/getData";
 import { getCountries } from "./redux/actions/index";
-import { useDispatch } from "react-redux";
+import "./App.css";
 
 function App() {
 	const dispatch = useDispatch();

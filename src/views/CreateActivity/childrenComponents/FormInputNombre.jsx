@@ -4,6 +4,7 @@ import { setFormActivity, setFormErrors } from "../../../redux/actions/index";
 import { PillChildren } from "../../../components/PillsData/PillsData";
 import { area } from "../../../assets/decorations";
 import { name02Activity, nameActivity } from "../../../assets/pillsActivities";
+import { TooltipErrors } from "../../../components/Tooltip/TooltipErrors";
 
 export function InputNombre() {
 	const formData = useSelector((state) => state.activitiesFormState);
@@ -22,16 +23,16 @@ export function InputNombre() {
 
 	return (
 		<>
-				<PillChildren image={name02Activity} title="Nombre de la actividad">
+			<PillChildren image={name02Activity} title="Nombre de la actividad">
+				<TooltipErrors text={'nombre'}>
 					<input
 						type="text"
 						value={formData.nombre}
 						onChange={handlerInputChange}
 						name="nombre"
 					/>
-				</PillChildren>
-
-			{formErrors.nombre && <span>{formErrors.nombre}</span>}
+				</TooltipErrors>
+			</PillChildren>
 		</>
 	);
 }

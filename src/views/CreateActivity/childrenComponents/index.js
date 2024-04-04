@@ -5,3 +5,4 @@ export * from './FormTemporada';
 export * from './FormListaDesplegablePais';
 export * from './submitLogic';
 export * from './CreateActivityData';
+export * from './SubmitButton';
