@@ -1,0 +1,29 @@
+.numeroContainer {
+    margin-right: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-background-01);
+    border: 2px solid var(--color-border);
+  }
+
+  .numeroContainerActive {
+    background-color: var(--color-background-01);
+    border: 2px solid var(--color-border);
+  }
+
+  .numeroStyle {
+    text-decoration: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0;
+    /* font-size: 1rem; */
+    /* line-height: 20px; */
+  }
+
+  .numeroActive {
+    color: var(--color-decoration-01);
+  }

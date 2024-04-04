@@ -1,15 +1,24 @@
-import NavBar from "../../components/NavBar/NavBar";
-import style from "./Home.module.css";
-import Hero from "../../components/Paginado/Hero";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+import { Layout } from "../../components/Layout/Layout";
+import { Loading } from "../../components/Loading/Loading";
+import { HomeData } from "./childrenComponents/index";
 
 const Home = () => {
+	const [dataLoaded, setDataLoaded] = useState(false);
 
-    return (
-      <div className={style.background }>
-          <NavBar/>
-          <Hero />
-      </div>
-    );
+	const allPaises = useSelector((state) => state.mainCountries);
+
+	useEffect(() => {
+		if (allPaises.length > 0) setDataLoaded(true);
+	}, [allPaises]);
+
+	return (
+		<Layout>
+				{dataLoaded === false ? <Loading /> : <HomeData />}
+		</Layout>
+	);
 };
 
 export default Home;

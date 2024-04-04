@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 
 import { getDetail } from "../../redux/actions/index";
 import { Loading } from "../../components/Loading/Loading";
-import {DetailData} from "./childComponent/DetailData";
+import { Layout } from "../../components/Layout/Layout";
+import {DetailData} from "./childrenComponents/index";
+
 import style from "./Detail.module.css";
 
 export default function Detail() {
@@ -20,8 +22,8 @@ export default function Detail() {
 	}, [dispatch, id]);
 
 	return (
-		<div className={style.background}>
+		<Layout>
 			{isLoading ? <Loading /> : <DetailData />}
-		</div>
+		</ Layout>
 	);
 }
