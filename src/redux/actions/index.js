@@ -10,3 +10,5 @@ export * from './getCountries';
 export * from './getByName';
 export * from './setFormActivity';
 export * from './setFormErrors';
+export * from './getListActivities';
+export * from './selectActivity';

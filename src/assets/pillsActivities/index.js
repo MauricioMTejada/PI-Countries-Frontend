@@ -8,3 +8,4 @@ export { default as duration02Activity } from './duration02.png';
 export { default as seasonActivity } from './season.png';
 export { default as season02Activity } from './season02.png';
 export { default as countryActivity } from './country.png';
+export { default as filterActivity } from './filter.png';

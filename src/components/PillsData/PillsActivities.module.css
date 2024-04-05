@@ -1,0 +1,21 @@
+/* tr {
+    background-color: var(--color-decoration-01);
+
+} */
+
+.contentTable { writing-mode: inherit;
+}
+
+.table {
+    width: 100%;
+    /* border: 2px solid var(--color-border); */
+    border-radius: 5px;
+    box-sizing: border-box;
+    table-layout: fixed; /* Hace que todas las columnas tengan el mismo ancho */
+}
+
+th {
+    background-color: var(--color-decoration-01);
+    color: var(--color-background-01)
+    /* background-color: red; */
+}

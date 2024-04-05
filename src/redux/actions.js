@@ -1,36 +1,9 @@
 import axios from "axios";
 import store from "./store"
 
-export const GET_LIST_ATIVITIES = "GET_LIST_ATIVITIES";
 export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
-export const MAIN_ORDER = "MAIN_ORDER";
 
-//Obtener actividades para la lista desplegable "Actividades"
-    export function getListActivities(){
-      return async function(dispatch) {
-            // Para solicitar actividades:
-            let nombreActividadesSinDuplicados = [];
 
-            try {
-              let json = await axios.get(`${URLBASE}activity/`);
-              let actividades = json.data.actividades;
-              // console.log(actividades)
-              let nombreActividades = actividades.map((element) => {
-                return element.nombre});
-              // console.log(nombreActividades);
-              nombreActividadesSinDuplicados = nombreActividades.filter((valor, indice, arreglo) => arreglo.indexOf(valor) === indice)
-              // console.log(nombreActividadesSinDuplicados);
-
-              return dispatch({
-                type: GET_LIST_ATIVITIES,
-                payload: nombreActividadesSinDuplicados
-              })
-
-            } catch (error) {
-              console.log(error);
-            }
-      }
-    }
 
 //Filtrar Actividades
     export function filterActivities(nameActivitie) {

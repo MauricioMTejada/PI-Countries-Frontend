@@ -11,9 +11,11 @@ import {
 	GET_BY_NAME,
 	SET_FORM_ACTIVITY,
 	SET_FORM_ERRORS,
+	GET_LIST_ACTIVITIES,
+	SELECT_ACTIVITY
 } from "./actions/index";
 
-import { GET_LIST_ATIVITIES, FILTER_BY_ACTIVITIES } from "./actions";
+import { FILTER_BY_ACTIVITIES } from "./actions";
 
 const initialState = {
 	detail: [],
@@ -45,6 +47,7 @@ const initialState = {
 		temporada: "",
 		pais: "",
 	},
+	selectActivity: "sinActividad",
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -75,7 +78,7 @@ const rootReducer = (state = initialState, action) => {
 		case GET_DETAILS:
 			return { ...state, detail: action.payload };
 
-		case GET_LIST_ATIVITIES:
+		case GET_LIST_ACTIVITIES:
 			return { ...state, listaActividades: action.payload };
 
 		case FILTER_BY_ACTIVITIES:
@@ -107,6 +110,9 @@ const rootReducer = (state = initialState, action) => {
 
 		case SET_FORM_ERRORS:
 			return { ...state, activitiesFormErrors: action.payload };
+
+		case SELECT_ACTIVITY:
+			return { ...state, selectActivity: action.payload };
 
 		default:
 			return { ...state };
