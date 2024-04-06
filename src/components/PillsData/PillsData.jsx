@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./PillsData.module.css";
+import { noImage } from "../../assets/others/index";
 
 export const Pill = ({ image, title, data }) => {
   return (
@@ -22,10 +23,12 @@ export const Pill = ({ image, title, data }) => {
 export const PillChildren = ({ image, title, children }) => {
   // console.log(image);
   // console.log(title);
+  const iconSrc = image ? image : noImage;
+
   return (
     <div className={style.pill}>
       <div className={style.contentImage}>
-        <img src={image} alt={title} className={style.image} />
+        <img src={iconSrc} alt={title} className={style.image} />
       </div>
       <div className={style.info}>
         <div className={style.title}>

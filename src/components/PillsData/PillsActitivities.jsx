@@ -1,12 +1,17 @@
+import { noImage } from '../../assets/others/index'
+
 import stylePillData from "./PillsData.module.css";
 import style from "./PillsActivities.module.css";
 
 export const PillActivity = ({ keyData }) => {
 	// console.log(keyData);
+
+	const iconSrc = keyData.icono ? keyData.icono : noImage;
+
 	return (
 		<div className={stylePillData.pill}>
 			<div className={stylePillData.contentImage}>
-				<img src={keyData.icono} alt="imagen" className={stylePillData.image} />
+				<img src={iconSrc} alt="imagen" className={stylePillData.image} />
 			</div>
 			{/* <div className={stylePillData.contentTable}> */}
 				<table className={style.table}>

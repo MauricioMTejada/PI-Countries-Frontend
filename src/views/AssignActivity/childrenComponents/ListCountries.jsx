@@ -3,15 +3,18 @@ import { useSelector } from "react-redux";
 
 import { ListCountriesContinent, ListCountriesCountry } from "./index";
 import { PillChildren, PillChildrenNoImage } from "../../../components/PillsData/index";
+import { orderAlphabeticalArray, orderAlphabeticalArrayOfObjects } from "../../../utils/orderAlphabetical/index";
 
 import style from "./ListCountries.module.css";
 
 export const ListCountries = () => {
 	const countriesList = useSelector((state) => state.mainCountries);
 
-	const continentList = [
+	let continentList = [
 		...new Set(countriesList.map((country) => country.continente)),
 	];
+	continentList = [...orderAlphabeticalArray(continentList)];
+	console.log(continentList);
 
 	const [selectedContinent, setSelectedContinent] = useState("");
 	const [selectedCountry, setSelectedCountry] = useState("");
@@ -19,6 +22,7 @@ export const ListCountries = () => {
 
 	const handleChangeContinent = (event) => {
 		setSelectedContinent(event.target.value);
+		setSelectedCountry("");
 	};
 
 	const handleChangeCountry = (event) => {

@@ -2,17 +2,30 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
+import { noImage } from '../../../assets/others/index'
+
 import {
 	getListActivities,
 	selectActivity,
 } from "../../../redux/actions/index";
 
 import { filterActivity } from "../../../assets/pillsActivities";
-import { PillActivity, PillChildren } from "../../../components/PillsData/index";
+import {
+	PillActivity,
+	PillChildren,
+} from "../../../components/PillsData/index";
+import { orderAlphabeticalArrayOfObjects } from "../../../utils/orderAlphabetical/orderAlphabeticalArrayOfObjects";
 
 export const ListActivities = () => {
 	const dispatch = useDispatch();
-	const [selectedActivity, setSelectedActivity] = useState(null);
+	const [selectedActivity, setSelectedActivity] = useState({
+		dificultad: "-",
+		duracion: "-",
+		icono: noImage,
+		id: "-",
+		nombre: "-",
+		temporada: "-",
+	});
 
 	const activitySelected = useSelector((state) => state.selectActivity);
 	// console.log(activitySelected);
@@ -21,7 +34,8 @@ export const ListActivities = () => {
 		dispatch(getListActivities());
 	}, [dispatch]);
 
-	const listaActividades = useSelector((state) => state.listaActividades);
+	let listaActividades = useSelector((state) => state.listaActividades);
+	listaActividades = [...orderAlphabeticalArrayOfObjects(listaActividades, 'nombre')];
 	// console.log(listaActividades);
 
 	function handleFilterActivities(event) {
@@ -53,7 +67,7 @@ export const ListActivities = () => {
 				</select>
 			</PillChildren>
 
-			{selectedActivity && <PillActivity keyData={selectedActivity} />}
+			<PillActivity keyData={selectedActivity} />
 		</>
 	);
 };
