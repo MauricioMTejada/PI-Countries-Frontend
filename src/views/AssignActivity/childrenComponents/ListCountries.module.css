@@ -1,11 +1,11 @@
-.container {
+.containerListCountriesArray {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 0.5em;
     /* min-width: 1300px; */
-    /* width: 100%; */
+    width: 100%;
     /* margin: 0 auto; */
 }
 

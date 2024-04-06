@@ -12,17 +12,18 @@ import {
 	SET_FORM_ACTIVITY,
 	SET_FORM_ERRORS,
 	GET_LIST_ACTIVITIES,
-	SELECT_ACTIVITY
+	SELECT_ACTIVITY,
+	COUNTRY_TO_ACTIVITY,
 } from "./actions/index";
 
 import { FILTER_BY_ACTIVITIES } from "./actions";
 
 const initialState = {
+	mainCountries: [],
+	editCountries: [],
 	detail: [],
 	listaActividades: [],
 	getByName: [],
-	editCountries: [],
-	mainCountries: [],
 	mainOrder: {
 		sortAlpha: "sinOrden",
 		sortPopul: "sinOrden",
@@ -48,6 +49,7 @@ const initialState = {
 		pais: "",
 	},
 	selectActivity: "sinActividad",
+	listCountryesToActivity: [{ countryIndex: 1, selectedCountry: "" }],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -113,6 +115,36 @@ const rootReducer = (state = initialState, action) => {
 
 		case SELECT_ACTIVITY:
 			return { ...state, selectActivity: action.payload };
+
+		case COUNTRY_TO_ACTIVITY:
+			const { countryIndex, selectedCountry } = action.payload;
+			const existingIndex = state.listCountryesToActivity.findIndex(
+				(item) => item.countryIndex === countryIndex
+			);
+
+			// Si el countryIndex ya existe en listCountryesToActivity, actualiza el elemento correspondiente
+			if (existingIndex !== -1) {
+				const updatedList = state.listCountryesToActivity.map((item) => {
+					if (item.countryIndex === countryIndex) {
+						return { ...item, selectedCountry };
+					} else {
+						return item;
+					}
+				});
+				return {
+					...state,
+					listCountryesToActivity: updatedList,
+				};
+			} else {
+				// Si el countryIndex no existe, agrega un nuevo elemento al final de la lista
+				return {
+					...state,
+					listCountryesToActivity: [
+						...state.listCountryesToActivity,
+						{ countryIndex, selectedCountry },
+					],
+				};
+			}
 
 		default:
 			return { ...state };

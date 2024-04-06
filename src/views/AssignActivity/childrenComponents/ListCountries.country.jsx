@@ -23,7 +23,7 @@ export const ListCountriesCountry = ({
 					countriesList
 						.filter((country) => country.continente === selectedContinent)
 						.map((country) => (
-							<option key={country.nombre} value={country.nombre}>
+							<option key={country.nombre} value={country.id}>
 								{country.nombre}
 							</option>
 						))}

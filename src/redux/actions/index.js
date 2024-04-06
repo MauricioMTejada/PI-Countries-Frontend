@@ -12,3 +12,4 @@ export * from './setFormActivity';
 export * from './setFormErrors';
 export * from './getListActivities';
 export * from './selectActivity';
+export * from './countryToActivity';
