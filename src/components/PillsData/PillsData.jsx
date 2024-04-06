@@ -20,6 +20,8 @@ export const Pill = ({ image, title, data }) => {
 };
 
 export const PillChildren = ({ image, title, children }) => {
+  // console.log(image);
+  // console.log(title);
   return (
     <div className={style.pill}>
       <div className={style.contentImage}>

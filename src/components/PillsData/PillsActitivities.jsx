@@ -2,11 +2,11 @@ import stylePillData from "./PillsData.module.css";
 import style from "./PillsActivities.module.css";
 
 export const PillActivity = ({ keyData }) => {
-	console.log(keyData);
+	// console.log(keyData);
 	return (
 		<div className={stylePillData.pill}>
 			<div className={stylePillData.contentImage}>
-				<img src={keyData.icono} alt={keyData.nombre} className={stylePillData.image} />
+				<img src={keyData.icono} alt="imagen" className={stylePillData.image} />
 			</div>
 			{/* <div className={stylePillData.contentTable}> */}
 				<table className={style.table}>

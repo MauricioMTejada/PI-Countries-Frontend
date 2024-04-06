@@ -6,9 +6,9 @@ import {
 	getListActivities,
 	selectActivity,
 } from "../../../redux/actions/index";
-import { PillChildren } from "../../../components/PillsData/PillsData";
-import { PillActivity } from "../../../components/PillsData/PillsActitivities";
+
 import { filterActivity } from "../../../assets/pillsActivities";
+import { PillActivity, PillChildren } from "../../../components/PillsData/index";
 
 export const ListActivities = () => {
 	const dispatch = useDispatch();

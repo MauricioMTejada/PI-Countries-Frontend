@@ -19,3 +19,9 @@ th {
     color: var(--color-background-01)
     /* background-color: red; */
 }
+
+/* Ajusta el ancho de la primera columna */
+.table th:first-child,
+.table td:first-child {
+    width: 40%; /* Establece el ancho deseado */
+}
