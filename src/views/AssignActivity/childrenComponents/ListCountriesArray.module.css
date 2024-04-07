@@ -13,3 +13,7 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+.addRemoveButton {
+    width: 30px;
+}

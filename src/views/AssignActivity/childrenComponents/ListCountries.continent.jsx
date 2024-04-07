@@ -2,7 +2,8 @@ import React from "react";
 
 export const ListCountriesContinent = ({
 	continentList,
-	selectedContinent,
+	// selectedContinent,
+	data,
 	onChangeContinent,
 }) => {
 	return (
@@ -10,7 +11,7 @@ export const ListCountriesContinent = ({
 			{/* <label htmlFor="continent-select">Selecciona un continente:</label> */}
 			<select
 				id="continent-select"
-				value={selectedContinent}
+				value={data.selectedCountry.continent}
 				onChange={onChangeContinent}>
 				<option value="">Todos los continentes</option>
 				{continentList.map((continent) => (
