@@ -80,9 +80,9 @@ export const ListCountriesArray = (props) => {
 					}
 				})
 			}
-			console.log(currentCountyId );
-			console.log(dataResponse?.nuevasRelaciones);
-			console.log(dataResponse?.relacionesExistente);
+			// console.log(currentCountyId );
+			// console.log(dataResponse?.nuevasRelaciones);
+			// console.log(dataResponse?.relacionesExistente);
 		}
 	}, [dataResponse]);
 

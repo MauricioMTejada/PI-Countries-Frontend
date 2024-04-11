@@ -6,3 +6,4 @@ export * from './ListCountries';
 export * from './ListCountries/ListCountriesArray.jsx';
 export * from './ListCountries/ListCountriesSelectors.jsx';
 export * from './SubmitAssignActivity.jsx';
+export * from './StatusNotifications.jsx';

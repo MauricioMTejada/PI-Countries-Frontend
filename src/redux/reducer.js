@@ -15,10 +15,13 @@ import {
 	SELECT_ACTIVITY,
 	COUNTRY_TO_ACTIVITY,
 	COUNTRY_TO_ACTIVITY_BUTTON_DELETE,
-	NOTIFICATION_COUNTRYES_TO_ACTIVITY
+	NOTIFICATION_COUNTRYES_TO_ACTIVITY,
+	STATE_ASSIGN_ACTIVITY,
 } from "./actions/index";
 
 import { FILTER_BY_ACTIVITIES } from "./actions";
+
+import { noImage } from "../assets/others";
 
 const initialState = {
 	mainCountries: [],
@@ -53,6 +56,15 @@ const initialState = {
 	selectActivity: "sinActividad",
 	listCountryesToActivity: [{ countryIndex: 1, selectedCountry: {} }],
 	notificationCountryesToActivity: {},
+	statesAssignActivity: {
+		headMessage: "Seleccioene una Actividad, seleccione al menos un país.",
+		optionActivity: false,
+		selectActivity: { dificultad: "-", duracion: "-", icono: noImage, id: "-", nombre: "-", temporada: "-", },
+		listCountryesToActivity: [{ countryIndex: 1, active: false, selectedCountry: {} }],
+		notificationCountryesToActivity: {},
+		informationSent: false,
+		informationRes: false,
+	}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -159,6 +171,13 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				notificationCountryesToActivity: action.payload,
+			};
+
+		case STATE_ASSIGN_ACTIVITY:
+			console.log(action.payload);
+			return {
+				...state,
+				statesAssignActivity: {...state.statesAssignActivity, ...action.payload},
 			};
 
 		default:

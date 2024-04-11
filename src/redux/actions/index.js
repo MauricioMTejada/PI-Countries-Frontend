@@ -15,3 +15,4 @@ export * from './selectActivity';
 export * from './countryToActivity';
 export * from './countryToActivityButtonDelette';
 export * from './notificationCountryesToActivity';
+export * from './actionStateAssignActivity';
