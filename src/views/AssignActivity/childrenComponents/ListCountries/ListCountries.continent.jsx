@@ -2,7 +2,6 @@ import React from "react";
 
 export const ListCountriesContinent = ({
 	continentList,
-	// selectedContinent,
 	data,
 	onChangeContinent,
 }) => {

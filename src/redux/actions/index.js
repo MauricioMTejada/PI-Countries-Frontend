@@ -14,3 +14,4 @@ export * from './getListActivities';
 export * from './selectActivity';
 export * from './countryToActivity';
 export * from './countryToActivityButtonDelette';
+export * from './notificationCountryesToActivity';

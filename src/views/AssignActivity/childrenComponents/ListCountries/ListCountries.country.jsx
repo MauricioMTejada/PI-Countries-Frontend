@@ -1,17 +1,15 @@
 import React from "react";
-import { orderAlphabeticalArrayOfObjects } from "../../../utils/orderAlphabetical";
+import { orderAlphabeticalArrayOfObjects } from "../../../../utils/orderAlphabetical";
 
-import style from "./ListCountries.module.css";
+import style from "../ListCountries.module.css";
 
 export const ListCountriesCountry = ({
 	countriesList,
-	// selectedContinent,
-	// selectedCountry,
 	data,
 	onChangeCountry,
 }) => {
-	console.log(data);
-	console.log(data.selectedCountry.nombre)
+	// console.log(data);
+	// console.log(data.selectedCountry.nombre)
 	countriesList = [...orderAlphabeticalArrayOfObjects(countriesList, "nombre")];
 	return (
 		<div className={style.containerDropDown}>

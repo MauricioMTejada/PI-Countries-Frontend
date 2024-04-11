@@ -14,7 +14,8 @@ import {
 	GET_LIST_ACTIVITIES,
 	SELECT_ACTIVITY,
 	COUNTRY_TO_ACTIVITY,
-	COUNTRY_TO_ACTIVITY_BUTTON_DELETE
+	COUNTRY_TO_ACTIVITY_BUTTON_DELETE,
+	NOTIFICATION_COUNTRYES_TO_ACTIVITY
 } from "./actions/index";
 
 import { FILTER_BY_ACTIVITIES } from "./actions";
@@ -51,6 +52,7 @@ const initialState = {
 	},
 	selectActivity: "sinActividad",
 	listCountryesToActivity: [{ countryIndex: 1, selectedCountry: {} }],
+	notificationCountryesToActivity: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -151,6 +153,12 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				listCountryesToActivity: action.payload,
+			};
+
+		case NOTIFICATION_COUNTRYES_TO_ACTIVITY:
+			return {
+				...state,
+				notificationCountryesToActivity: action.payload,
 			};
 
 		default:

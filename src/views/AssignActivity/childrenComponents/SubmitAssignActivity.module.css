@@ -1,0 +1,36 @@
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.buttonCapsule {
+    width: fit-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+
+    color: var(--color-text);
+    background-color: var(--color-background-02);
+    align-items: baseline;
+
+}
+
+.SmallLoading {
+    /* background-color: red; */
+    position: absolute;
+    left: 125%;
+    /* Coloca SmallLoading a la izquierda del botón */
+    top: 50%;
+    /* Centra verticalmente respecto al botón */
+    transform: translateY(-50%);
+    /* Ajusta la posición vertical */
+}

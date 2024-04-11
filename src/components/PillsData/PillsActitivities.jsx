@@ -4,6 +4,7 @@ import stylePillData from "./PillsData.module.css";
 import style from "./PillsActivities.module.css";
 
 export const PillActivity = ({ keyData }) => {
+	// console.log(`PillActivity, keyData: `);
 	// console.log(keyData);
 
 	const iconSrc = keyData.icono ? keyData.icono : noImage;
