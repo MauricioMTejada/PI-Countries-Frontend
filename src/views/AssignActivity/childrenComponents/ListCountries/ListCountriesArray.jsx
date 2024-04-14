@@ -1,124 +1,97 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ListCountriesSelectors } from "./ListCountriesSelectors";
-import {
-	countryToActivity,
-	countryToActivityButtonDelette,
-} from "../../../../redux/actions/index";
-
-import { add01, remove01 } from "../../../../assets/others/index";
+import { actionPushStateAssignActivity, deleteCountry, } from "../../../../redux/actions/index";
+import { TooltipLeftGreen, TooltipLeftYellow } from "../../../../components/Tooltip/index";
+import { add01, remove01, removeDisable } from "../../../../assets/others/index";
 
 import style from "./ListCountriesArray.module.css";
-import { TooltipLeftGreen, TooltipLeftYellow } from "../../../../components/Tooltip/index";
+
 
 export const ListCountriesArray = (props) => {
-	// console.log(`ListCountriesArray: ${props.countryIndex}`);
-	// console.log(props.data);
 
 	// dispatch
-		const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	// consulto el Estado Global
-		const listCountryesToActivity = useSelector(
-			(state) => state.listCountryesToActivity
-		);
+	// Estado Global - Estado Asignar actividad:
+	const { listCountriesToActivity, endOfWork } = useSelector( (state) => state.statesAssignActivity );
 
-		const { dataResponse } = useSelector((state) => state.notificationCountryesToActivity);
-		// console.log(`dataResponse: `);
-		// console.log(dataResponse);
+	// Calculo el último índice (countryIndex)
+	const lastIndex = listCountriesToActivity.reduce( (maxIndex, item) => Math.max(maxIndex, item.countryIndex), 0 );
 
-	// Estados de tooltips:
-		const [tooltipGreen, setTooltipGreen] = useState(false);
-		const [tooltipYellow, setTooltipYellow] = useState(false);
-
-	// Texto de los tooltips:
-		const textTooltipGreen = "Relación agregada";
-		const textTooltipYellow = "Relación existente";
-
-	// Calculo el último índice
-		const lastIndex = listCountryesToActivity.reduce(
-			(maxIndex, item) => Math.max(maxIndex, item.countryIndex),
-			0
-		);
-		// console.log(listCountryesToActivity);
-		// console.log(`lastIndex: ${lastIndex}`);
-
+	// Objeto "País vacío":
+	const emptyCountryData = { countryIndex: props.data.countryIndex + 1, active: false, selectedCountry: {}, saveData: false, }
 
 	// Funciones de los botones
 		const handleAdd = () => {
-			const selectedCountry = "";
-			dispatch(countryToActivity(props.data.countryIndex + 1, selectedCountry));
+			dispatch(actionPushStateAssignActivity(emptyCountryData));
 		};
 
 		const handleDelete = () => {
-			if (listCountryesToActivity.length === 1) {
+			if (listCountriesToActivity.length === 1) {
 				return;
 			} else {
-				dispatch(countryToActivityButtonDelette(props.data.countryIndex));
+				dispatch(deleteCountry(props.data.countryIndex));
 			}
 		};
-
-	useEffect(() => {
-		if (1) {
-			const currentCountyId = props.data.selectedCountry.id
-
-			if (dataResponse && dataResponse.nuevasRelaciones) {
-				dataResponse.nuevasRelaciones.map((country) => {
-					console.log(country);
-					if (country.countryId === currentCountyId) {
-						setTooltipGreen(true);
-					}
-				})
-			}
-
-			if (dataResponse && dataResponse.relacionesExistente) {
-				dataResponse.relacionesExistente.map((country) => {
-					console.log(country);
-					if (country.countryId === currentCountyId) {
-						setTooltipYellow(true);
-					}
-				})
-			}
-			// console.log(currentCountyId );
-			// console.log(dataResponse?.nuevasRelaciones);
-			// console.log(dataResponse?.relacionesExistente);
-		}
-	}, [dataResponse]);
-
 
 	// Estilos para los botones
 		const getButtonClasses = () => {
 			let classes = [style.buttonAddRemove];
 
-			if (listCountryesToActivity.length === 1) {
+			if (listCountriesToActivity.length === 1) {
 				classes.push(style.disabledButton);
 			}
 
 			return classes.join(" ");
 		};
 
+	// Texto de los tooltips
+	const textTooltipGreen = "Relación agregada";
+	const textTooltipYellow = "Relación existente";
+	const visualizeGreen = props.data.saveData && !props.data.existSaveData;
+	const visualizeYellow = props.data.saveData && props.data.existSaveData;
+
+
 	return (
 		<div className={style.container}>
-			<TooltipLeftYellow text={textTooltipYellow} visualizar={tooltipYellow}>
-				<TooltipLeftGreen 	text={textTooltipGreen} visualizar={tooltipGreen}>
+			<TooltipLeftYellow
+				text={textTooltipYellow}
+				visualizar={visualizeYellow}>
+				<TooltipLeftGreen
+					text={textTooltipGreen}
+					visualizar={visualizeGreen}>
 					<ListCountriesSelectors data={props.data} />
 				</TooltipLeftGreen>
 			</TooltipLeftYellow>
 
 			<div className={style.buttonContainer}>
-				<button onClick={handleDelete} className={getButtonClasses()}>
-					<img
-						src={remove01}
-						alt="remove"
-						className={style.imgAddRemoveButton}
-					/>
+				{/* <button onClick={handleDelete} className={getButtonClasses()} disabled={endOfWork}> */}
+				<button
+					onClick={handleDelete}
+					className={style.buttonAddRemove}
+					disabled={endOfWork}>
+					{listCountriesToActivity.length === 1 ? (
+						<img
+							src={removeDisable}
+							alt="remove"
+							className={style.imgAddRemoveButton}
+						/>
+					) : (
+						<img
+							src={remove01}
+							alt="remove"
+							className={style.imgAddRemoveButton}
+						/>
+					)}
 				</button>
 
 				{props.data.countryIndex === lastIndex && (
 					<button
 						onClick={handleAdd}
-						className={style.buttonAddRemove}>
+						className={style.buttonAddRemove}
+						disabled={endOfWork}>
 						<img
 							src={add01}
 							alt="add"

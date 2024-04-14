@@ -4,11 +4,11 @@ export const COUNTRY_TO_ACTIVITY_BUTTON_DELETE = "COUNTRY_TO_ACTIVITY_BUTTON_DEL
 
 export const countryToActivityButtonDelette = (value) => {
     // console.log(`action - value: ${value}`);
-    const listCountryesToActivity = store.getState().listCountryesToActivity
+    const listCountriesToActivity = store.getState().listCountriesToActivity
 
-    // console.log(listCountryesToActivity);
+    // console.log(listCountriesToActivity);
 
-    const updatedList = listCountryesToActivity.filter(item => item.countryIndex !== value);
+    const updatedList = listCountriesToActivity.filter(item => item.countryIndex !== value);
 
     // console.log(updatedList);
 

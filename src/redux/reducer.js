@@ -17,11 +17,14 @@ import {
 	COUNTRY_TO_ACTIVITY_BUTTON_DELETE,
 	NOTIFICATION_COUNTRYES_TO_ACTIVITY,
 	STATE_ASSIGN_ACTIVITY,
+	RESET_ASSIGN_ACTIVITY,
+	RESET_IN_FALSE,
 } from "./actions/index";
 
 import { FILTER_BY_ACTIVITIES } from "./actions";
 
 import { noImage } from "../assets/others";
+import { baseStatesAssignActivity } from "../utils/reset/statesAssignActivity";
 
 const initialState = {
 	mainCountries: [],
@@ -54,17 +57,20 @@ const initialState = {
 		pais: "",
 	},
 	selectActivity: "sinActividad",
-	listCountryesToActivity: [{ countryIndex: 1, selectedCountry: {} }],
+	listCountriesToActivity: [{ countryIndex: 1, selectedCountry: {} }],
 	notificationCountryesToActivity: {},
 	statesAssignActivity: {
-		headMessage: "Seleccioene una Actividad, seleccione al menos un país.",
+		messageStatusBlink: false,
 		optionActivity: false,
 		selectActivity: { dificultad: "-", duracion: "-", icono: noImage, id: "-", nombre: "-", temporada: "-", },
-		listCountryesToActivity: [{ countryIndex: 1, active: false, selectedCountry: {} }],
+		listCountriesToActivity: [{ countryIndex: 1, active: false, selectedCountry: {}, saveData: false, }],
 		notificationCountryesToActivity: {},
 		informationSent: false,
-		informationRes: false,
-	}
+		informationResOK: false,
+		informationResBad: false,
+		endOfWork: false,
+	},
+	resetSignalAssignActivity: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -133,13 +139,13 @@ const rootReducer = (state = initialState, action) => {
 
 		case COUNTRY_TO_ACTIVITY:
 			const { countryIndex, selectedCountry } = action.payload;
-			const existingIndex = state.listCountryesToActivity.findIndex(
+			const existingIndex = state.listCountriesToActivity.findIndex(
 				(item) => item.countryIndex === countryIndex
 			);
 
-			// Si el countryIndex ya existe en listCountryesToActivity, actualiza el elemento correspondiente
+			// Si el countryIndex ya existe en listCountriesToActivity, actualiza el elemento correspondiente
 			if (existingIndex !== -1) {
-				const updatedList = state.listCountryesToActivity.map((item) => {
+				const updatedList = state.listCountriesToActivity.map((item) => {
 					if (item.countryIndex === countryIndex) {
 						return { ...item, selectedCountry };
 					} else {
@@ -148,14 +154,14 @@ const rootReducer = (state = initialState, action) => {
 				});
 				return {
 					...state,
-					listCountryesToActivity: updatedList,
+					listCountriesToActivity: updatedList,
 				};
 			} else {
 				// Si el countryIndex no existe, agrega un nuevo elemento al final de la lista
 				return {
 					...state,
-					listCountryesToActivity: [
-						...state.listCountryesToActivity,
+					listCountriesToActivity: [
+						...state.listCountriesToActivity,
 						{ countryIndex, selectedCountry },
 					],
 				};
@@ -164,7 +170,7 @@ const rootReducer = (state = initialState, action) => {
 		case COUNTRY_TO_ACTIVITY_BUTTON_DELETE:
 			return {
 				...state,
-				listCountryesToActivity: action.payload,
+				listCountriesToActivity: action.payload,
 			};
 
 		case NOTIFICATION_COUNTRYES_TO_ACTIVITY:
@@ -174,10 +180,24 @@ const rootReducer = (state = initialState, action) => {
 			};
 
 		case STATE_ASSIGN_ACTIVITY:
-			console.log(action.payload);
+			// console.log(action.payload);
 			return {
 				...state,
 				statesAssignActivity: {...state.statesAssignActivity, ...action.payload},
+			};
+
+		case RESET_ASSIGN_ACTIVITY:
+			// console.log(baseStatesAssignActivity);
+			return {
+				...state,
+				statesAssignActivity: { ...baseStatesAssignActivity, listCountriesToActivity: [{ countryIndex: 1, active: false, selectedCountry: {}, saveData: false, }] },
+				resetSignalAssignActivity: true,
+			};
+
+		case RESET_IN_FALSE:
+			return {
+				...state,
+				resetSignalAssignActivity: false,
 			};
 
 		default:

@@ -1,44 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { countryToActivity } from "../../../../redux/actions/index";
+import { addContinent, addCountry } from "../../../../redux/actions/index";
 
-import {
-	PillChildren,
-	PillChildrenNoImage,
-} from "../../../../components/PillsData/index";
+import { PillChildren, PillChildrenNoImage, } from "../../../../components/PillsData/index";
 import { ListCountriesContinent, ListCountriesCountry } from "../index";
 import { orderAlphabeticalArray } from "../../../../utils/orderAlphabetical/index";
 
 import style from "./ListCountriesSelectors.module.css";
 
+
 export const ListCountriesSelectors = (props) => {
 	// console.log(props.data);
+
 	const dispatch = useDispatch();
+
+	// Estado Global: lista de países:
 	const countriesList = useSelector((state) => state.mainCountries);
 
+	// Lista de continentes ordenados alfabéficamente:
+	const continentList = orderAlphabeticalArray([ ...new Set(countriesList.map((country) => country.continente)), ]);
+
+	// manejadores de eventos de lista de continentes:
 	const handleChangeContinent = (event) => {
 		const selectedContinentValue = { continente: event.target.value };
-		dispatch(
-			countryToActivity(props.data.countryIndex, selectedContinentValue)
-		);
+		const value = props.data;
+		dispatch(addContinent(value, selectedContinentValue));
 	};
 
+	// manejadores de eventos de lista de países:
 	const handleChangeCountry = (event) => {
 		const selectedCountryValue = event.target.value;
-		// console.log(`selectedCountryValue: ${selectedCountryValue}`);
-		const selectedCountry = countriesList.find(
-			(country) => country.id === selectedCountryValue
-		);
-		// console.log(selectedCountry);
-		dispatch(countryToActivity(props.data.countryIndex, selectedCountry));
+		const value = props.data;
+		// console.log(selectedCountryValue);
+		// console.log(value);
+		dispatch(addCountry(value, selectedCountryValue));
+		// (addCountry(value, selectedCountryValue));
 	};
-
-	const continentList = orderAlphabeticalArray([
-		...new Set(countriesList.map((country) => country.continente)),
-	]);
 
 	const titleContinent = "Seleccione un Continente:";
 	const titleCountry = "Seleccione un país";
+
 
 	return (
 		<div className={style.container}>

@@ -1,37 +1,84 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import style from "./StatusNotifications.module.css";
+import { actionStateAssignActivity } from "../../../redux/actions/index";
+
 
 export const StatusNotifications = () => {
-	const { optionActivity, listCountryesToActivity } = useSelector(
-		(state) => state.statesAssignActivity
-	);
-	const [messages, setMessages] = useState([]);
+
+	const dispatch = useDispatch();
+
+	const {
+		optionActivity,
+		listCountriesToActivity,
+		messageStatusBlink,
+		informationSent,
+		informationResOK,
+		informationResBad,
+	} = useSelector((state) => state.statesAssignActivity);
+
+	const countriesSelected = (!listCountriesToActivity.some((objeto) => objeto.active === true))
+
+	const messages = {
+		activity : {state: true, text: "Seleccione una Actividad."},
+		country : {state: true, text: "Seleccione al menos un país."},
+		sendStatus: [
+			{ state: "ready", text: "Datos listos para enviar." },
+			{ state: "sending", text: "Enviando datos." },
+			{ state: "error", text: "Error al enviar datos." },
+			{ state: "completed", text: "Datos enviados exitosamente." },
+		]
+	}
+
+	const [applyBlink, setApplyBlink] = useState(false);
 
 	useEffect(() => {
-		const newMessages = [];
-		console.log(listCountryesToActivity);
+		// Parpadeo de mensajes:
+		if (messageStatusBlink) blinkMessages();
 
-		// Verificar la opción de actividad
-		if (!optionActivity) newMessages.push("Seleccione una Actividad.");
+	}, [messageStatusBlink]);
 
-		// Verificar si al menos un país está seleccionado
-		if (!listCountryesToActivity.some((objeto) => objeto.active === true)) {
-			newMessages.push("Seleccione al menos un Pais.");
-		}
+	const blinkMessages = () => {
+		setApplyBlink(true);
+		setTimeout(() => { setApplyBlink(false); }, 200);
+		setTimeout(() => { setApplyBlink(true); }, 350);
+		setTimeout(() => { setApplyBlink(false); }, 550);
+		setTimeout(() => { setApplyBlink(true); }, 700);
+		setTimeout(() => { setApplyBlink(false); }, 2400);
+		dispatch(actionStateAssignActivity({messageStatusBlink: false}));
+	};
 
-		// Actualizar los mensajes
-		setMessages(newMessages);
-	}, [optionActivity, listCountryesToActivity]);
 
 	return (
-		<div className={style.container}>
+		<div className={`${style.container} ${applyBlink ? style.blink : ""}`}>
 			<div className={style.messagesText}>
-				{/* Renderizar los mensajes */}
-				{messages.map((message, index) => (
-					<div key={index}>{message}&nbsp;</div>
-				))}
+
+				{!optionActivity &&
+					<div>
+						{messages.activity.text}
+					</div>}
+				{countriesSelected &&
+					<div>
+						{messages.country.text}
+					</div>}
+				{optionActivity && !countriesSelected && !informationResOK && !informationResBad &&
+					<div>
+						{messages.sendStatus.find(status => status.state === "ready").text}
+					</div>}
+				{informationSent &&
+					<div>
+						{messages.sendStatus.find(status => status.state === "sending").text}
+					</div>}
+				{informationResOK &&
+					<div>
+						{messages.sendStatus.find(status => status.state === "completed").text}
+					</div>}
+				{informationResBad &&
+					<div>
+						{messages.sendStatus.find(status => status.state === "error").text}
+					</div>}
+
 			</div>
 		</div>
 	);

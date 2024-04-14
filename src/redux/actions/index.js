@@ -16,3 +16,4 @@ export * from './countryToActivity';
 export * from './countryToActivityButtonDelette';
 export * from './notificationCountryesToActivity';
 export * from './actionStateAssignActivity';
+export * from './resetStateAssignActivity';

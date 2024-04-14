@@ -34,12 +34,12 @@ export const getByName = (nombre) => {
 
       return;
 
-      const apiData = await axios.get(`${URLBASE}countries/?nombre=${name}`);
-      const paisByName = [apiData.data];
-      if (apiData.data === null) {
-        alert("País no encontrado");
-        return;
-      } else dispatch({ type: GET_BY_NAME, payload: paisByName });
+      // const apiData = await axios.get(`${URLBASE}countries/?nombre=${name}`);
+      // const paisByName = [apiData.data];
+      // if (apiData.data === null) {
+      //   alert("País no encontrado");
+      //   return;
+      // } else dispatch({ type: GET_BY_NAME, payload: paisByName });
     };
 
 };

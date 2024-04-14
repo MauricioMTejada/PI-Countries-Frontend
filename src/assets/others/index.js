@@ -7,3 +7,4 @@ export { default as add03 } from './add - transparent - dark.png';
 export { default as remove03 } from './remove - transparent - dark.png';
 export { default as add04 } from './add - cyan - ligth.png';
 export { default as remove04 } from './remove - cyan- ligth.png';
+export { default as removeDisable } from './remove-disable.png';
